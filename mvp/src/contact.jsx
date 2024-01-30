@@ -2,14 +2,13 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import styled from 'styled-components';
 
-// Styled components
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   max-width: 400px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #1d1d29; // Set the background color for the form
+  background-color: #1d1d29;
   border-radius: 8px;
 `;
 
@@ -32,7 +31,7 @@ const StyledButton = styled.input`
   margin: 10px 0;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #4578f9;
   color: white;
   font-size: 1rem;
   cursor: pointer;
