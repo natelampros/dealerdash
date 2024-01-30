@@ -5,9 +5,7 @@ import styled from 'styled-components';
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
+  max-width: 250px;
   background-color: #1d1d29;
   border-radius: 8px;
 `;
