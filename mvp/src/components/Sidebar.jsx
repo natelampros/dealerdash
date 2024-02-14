@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../logo.png"; // Make sure the path to your logo is correct
+import logo from "../logo.png";
+import icon from "../icon.png";
 import GridViewIcon from '@mui/icons-material/GridView';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
@@ -18,12 +19,19 @@ const LogoWrapper = styled.div`
   padding: 10px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 10px;
+  color: white;
+  font-size: 20px;
+  gap: 10px;
+  font-weight: bold;
 `;
 
 const LogoImage = styled.img`
-  max-width: 90%;
+  max-width: 20%;
+  border-radius: 10px;
   height: auto;
+  background-color: #696FF2;
 `;
 
 const SidebarItem = styled.div`
@@ -31,7 +39,7 @@ const SidebarItem = styled.div`
   padding: 10px 20px;
   margin: 10px 0;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 25px;
   transition: background-color 0.3s;
   display: flex;
   justify-content: flex-start;
@@ -39,8 +47,8 @@ const SidebarItem = styled.div`
   align-items: center;
 
   &:hover {
-    background-color: white; // Darker background color on hover
-    color: #11121e;
+    background-color: #696FF2; // Darker background color on hover
+    color: #ffffff;
   }
 `;
 const SidebarTitle = styled.div`
@@ -51,7 +59,7 @@ const SidebarTitle = styled.div`
 `;
 // Update to SidebarContainer
 const SidebarContainer = styled.div`
-  background-color: #1d1d29;
+  background-color: #0B0D1E;
   width: 250px;
   height: 100vh;
   padding: 20px;
@@ -100,7 +108,8 @@ const Sidebar = () => {
     <SidebarContainer>
       <div>
         <LogoWrapper>
-          <LogoImage src={logo} alt="App Logo" />
+          <LogoImage src={icon} alt="App Logo" />
+          Dealer Dash
         </LogoWrapper>
         {/*<SidebarHeader>Dealer Dash</SidebarHeader>*/}
         {
@@ -122,8 +131,8 @@ const Sidebar = () => {
       </div>
       {/* ... other sidebar items */}
       <div>
-        <SidebarTitle>Contact Us</SidebarTitle>
-        <ContactUs />
+        {/* <SidebarTitle>Contact Us</SidebarTitle>
+        <ContactUs /> */}
       </div>
     </SidebarContainer>
   );

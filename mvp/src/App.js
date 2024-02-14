@@ -10,7 +10,7 @@ function App() {
         <Sidebar />
         <div style={{ flex: 1, padding: '20px', overflow: 'auto' }}>
           <div style={{ height: '700px', overflowY: 'scroll' }}> {/* Adjust the height as needed */}
-            <GoogleFormComponent />
+            {/* <GoogleFormComponent /> */}
           </div>
         </div>
       </div>
