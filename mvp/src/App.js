@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Sidebar from "./components/Sidebar";
+import DashBoardView from "./views/DashboardView";
 import GoogleFormComponent from './GoogleFormComponent';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         <Sidebar />
         <div style={{ flex: 1, padding: '20px', overflow: 'auto' }}>
           <div style={{ height: '700px', overflowY: 'scroll' }}> {/* Adjust the height as needed */}
+            <DashBoardView />
             {/* <GoogleFormComponent /> */}
           </div>
         </div>
