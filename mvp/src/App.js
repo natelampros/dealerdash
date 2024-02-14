@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.png';
 import './App.css';
-
+import Sidebar from "./components/Sidebar";
 import GoogleFormComponent from './GoogleFormComponent';
-import Sidebar from './sidebar';
 
 function App() {
   return (
