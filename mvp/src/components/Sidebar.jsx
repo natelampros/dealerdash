@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../logo.png";
 import icon from "../icon.png";
 import GridViewIcon from '@mui/icons-material/GridView';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -12,7 +11,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 // import PollOutlinedIcon from "@mui/icons-material/PollOutlined";
 // import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 // import DonutSmallOutlinedIcon from "@mui/icons-material/DonutSmallOutlined";
-import { ContactUs } from "../contact";
+// import { ContactUs } from "../contact";
 import './css/Sidebar.css';
 
 const LogoWrapper = styled.div`
@@ -48,6 +47,10 @@ const SidebarItem = styled.div`
 
   &:hover {
     background-color: #696FF2; // Darker background color on hover
+    color: #ffffff;
+  }
+  &:active {
+    background-color: #3e4294
     color: #ffffff;
   }
 `;

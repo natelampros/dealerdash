@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Sidebar from "./components/Sidebar";
 import DashBoardView from "./views/DashboardView";
-import GoogleFormComponent from './GoogleFormComponent';
+// import GoogleFormComponent from './GoogleFormComponent';
 
 function App() {
   return (
