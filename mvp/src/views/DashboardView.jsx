@@ -2,13 +2,15 @@ import styled from "styled-components";
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { Progressbar } from "../components/Progressbar";
 import { useState } from "react";
+import { BasicExample } from "../components/DropdownButton";
 
 import './styles.css';
 
 const DashboardHeader = styled.div`
   color: white;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px 0 20px 20px;
   font-size: 40px;
   align-items: center;
@@ -29,11 +31,11 @@ const DashboardTotalGrossBoard = styled.div`
   background-color: #21242C;
   color: white;
   padding: all 20px;
-  border-radius: 10px;
+  border-radius: 25px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 400px;
+  max-width: 420px;
   min-height: 175px;
   justify-content: flex-start;
   align-items: center;
@@ -92,6 +94,7 @@ const DashBoardView = () => {
           <DashboardHeader>
             Dashboard 
             <CalendarTodayIcon fontSize="large" color="gray"/>
+            <BasicExample />
           </DashboardHeader>
           <DashboardTotalGrossBoard>
             <p className="boardTitle">Total gross</p>
