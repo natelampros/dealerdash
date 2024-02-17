@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { Progressbar } from "../components/Progressbar";
 import { useState } from "react";
+
 import './styles.css';
 
 const DashboardHeader = styled.div`
@@ -32,7 +33,8 @@ const DashboardTotalGrossBoard = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 250px;
+  max-width: 400px;
+  min-height: 175px;
   justify-content: flex-start;
   align-items: center;
 `
@@ -74,9 +76,14 @@ const DashboardServicePartsManagementBoard = styled.div`
 `
 
 const DashBoardView = () => {
-  const [pace, setPace] = useState("");
-  const [goal, setGoal] = useState("");
-  const [diff, setDiff] = useState("");
+  const [pace, setPace] = useState(873583);
+  const [goal, setGoal] = useState(950000);
+  const [difference, setDiff] = useState(-8.04);
+
+  // formatted numbers
+  const progress = pace / goal;
+  const p = pace.toLocaleString();
+  const g = goal.toLocaleString();
 
   return (
     <div>
@@ -87,9 +94,10 @@ const DashBoardView = () => {
             <CalendarTodayIcon fontSize="large" color="gray"/>
           </DashboardHeader>
           <DashboardTotalGrossBoard>
-            <h3 className="boardTitle">Total gross</h3>
+            <p className="boardTitle">Total gross</p>
             <p className="boardTitleNumber">$873,850</p>
-            <Progressbar props={{pace, goal, diff}}/>
+            <p className="progressText">{`Pacing: $${p} / Goal: $${g}`}</p>
+            <Progressbar progress={progress} diff={difference}/>
           </DashboardTotalGrossBoard>
         </DashboardBody>
       </DashboardContainer>
