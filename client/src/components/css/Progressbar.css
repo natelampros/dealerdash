@@ -1,0 +1,40 @@
+.progress-bar {
+  background-color: #131523;
+  border-radius: 25px;
+  width: 300px;
+  height: 20px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.progress-diff-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px 20px 20px;
+  width: 100%;
+  height: 20px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #da615c;
+  border-radius: 25px;
+}
+
+.gross {
+  color: #da615c;
+}
+
+.progressDiffTextContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #da615c;
+  margin: 0 0 0 0px;
+}
+
+.progressDiff {
+  margin: 0 0 0 0;
+}
