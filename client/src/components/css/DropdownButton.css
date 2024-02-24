@@ -1,0 +1,46 @@
+.dropdown-btn {
+  margin: 20px 20px 0 0;
+  box-shadow: none !important;
+}
+
+.toggle-btn {
+  background-color: transparent !important;
+  border-color: transparent;
+  border-style: solid;
+  box-shadow: none !important;
+  color: #9A9B9D;
+}
+
+.dropdown-menu {
+  box-sizing: border-box;
+  box-shadow: none !important;
+  height: auto;
+  display: block;
+  background-color: inherit;
+  color: #9A9B9D;
+  transform: translateX(3%);
+  width: 50px !important;
+  white-space: nowrap;
+  list-style: none;
+  border-width: 0px;
+  border-color: transparent;
+  font-size: 14x;
+  margin-top: -5px;
+}
+
+.dropdown-option {
+  display: block;
+  width: inherit;
+  cursor: pointer;
+  padding: 0 0 5px 0;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    color: #FFF;
+    font-size: 25px;
+  }
+}
+
+.cur-toggle {
+  font-size: 14px;
+}

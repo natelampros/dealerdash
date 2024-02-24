@@ -2,8 +2,9 @@
   margin: 20px 0 0 20px;
   margin-left: 20px;
   text-align: left;
-  width: 100%;
+  width: 50%;
   font-size: 20px;
+  color: white;
 }
 
 .boardTitleNumber {
@@ -20,4 +21,12 @@
   margin: 20px 0 0 20px;
   text-align: left;
   margin-bottom: 5px;
+}
+
+.dashboard-board-title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
