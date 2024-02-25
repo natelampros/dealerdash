@@ -5,6 +5,7 @@
   width: 50%;
   font-size: 20px;
   color: white;
+  max-height: 52px;
 }
 
 .boardTitleNumber {
@@ -29,4 +30,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.circle {
+  
+}
+
+.yearly-calendar {
+  /* align-items: center;
+  justify-content: center;
+  display: flex; */
+  width: 100%;
+  height: 100%;
 }
