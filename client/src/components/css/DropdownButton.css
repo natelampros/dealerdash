@@ -1,6 +1,7 @@
 .dropdown-btn {
   margin: 20px 20px 0 0;
   box-shadow: none !important;
+  position: relative;
 }
 
 .toggle-btn {
@@ -12,20 +13,22 @@
 }
 
 .dropdown-menu {
-  box-sizing: border-box;
   box-shadow: none !important;
   height: auto;
   display: block;
-  background-color: inherit;
+  position: absolute !important;
+  background-color: #141519;
+  opacity: 0.9;
   color: #9A9B9D;
-  transform: translateX(3%);
-  width: 50px !important;
+  transform: translateX(2%);
+  width: 50px;
   white-space: nowrap;
   list-style: none;
   border-width: 0px;
   border-color: transparent;
-  font-size: 14x;
+  font-size: 12px;
   margin-top: -5px;
+  padding: 5px 5px 5px 5px;
 }
 
 .dropdown-option {
