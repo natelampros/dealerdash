@@ -1,137 +1,49 @@
 import styled from "styled-components";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Progressbar } from "../components/Progressbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Dropdown from "../components/DropdownButton";
 import "./styles.css";
 import MTDProgess from "../components/MTDProgress";
 import Chart from 'chart.js/auto';
-import { Bar } from 'react-chartjs-2';
-import Doughnut from 'chart.js';
+import { Bar, Doughnut } from 'react-chartjs-2';
 import { Notification } from '../components/Notification';
+import {
+  notifications,
+  salesproData,
+  srvcPartsData,
+  salesFinData,
+  fixedopData,
+  options,
+  outreachOptions,
+  salesFinOptions,
+  salesproOptions,
+  yearlyOptions,
+  outreachData,
+  outreachConfig,
+  chartData,
+  colors,
+  ops
+} from '../mockData';
 
-const notifications = [
-  {},
-  {},
-  {},
-]
-
-const colors = [
-  { purple: '#464DC2' }
-]
-
-const salesproData = [
-  { key: "1", name: "John Davis", actual: "18", goal: "22" },
-  { key: "2", name: "Steve Lacy", actual: "15", goal: "25" },
-  { key: "3", name: "Jordan Lee", actual: "6", goal: "18" },
-  { key: "4", name: "Chris Parker", actual: "10", goal: "22" }
-]
-
-const srvcPartsData = [
-  { key: "1", name: "John Davis", actual: "23", goal: "22" },
-  { key: "2", name: "Steve Lacy", actual: "24", goal: "25" },
-  { key: "3", name: "Jordan Lee", actual: "16", goal: "18" },
-  { key: "4", name: "Chris Parker", actual: "22", goal: "22" },
-  { key: "5", name: "Sasm Kelley", actual: "26", goal: "25" }
-]
-
-const salesFinData = [
-  { key: "1", name: "John Davis", actual: "23", goal: "22" },
-  { key: "2", name: "Steve Lacy", actual: "24", goal: "25" },
-  { key: "3", name: "Jordan Lee", actual: "16", goal: "18" },
-  { key: "4", name: "Chris Parker", actual: "22", goal: "22" },
-  { key: "5", name: "Sasm Kelley", actual: "26", goal: "25" }
-]
-
-const fixedopData = [
-  { key: "1", name: "Service Gross", actual: 125340, goal: 120000 },
-  { key: "2", name: "Parts Gross", actual: 105340, goal: 120000 },
-  { key: "3", name: "Total RO", actual: 1234, goal: 1250 },
-  { key: "4", name: "Total Hours", actual: 1234, goal: 1250 },
-  { key: "5", name: "Hours Per RO", actual: 22, goal: 25 }
-]
-
-const options = [
-  { label: "1", value: "TOTAL"},
-  { label: "2", value: "GROSS"},
-  { label: "3", value: "NET"},
-];
-
-const salesproOptions = [
-  { label: "1", value: "CARS SOLD"},
-]
-
-const yearlyOptions = [
-  { label: "1", value: "GROSS"},
-  { label: "2", value: "NET"},
-]
-
-const chartkey = [
-  { name: "actual", color: "#696FF2" },
-  { name: "goal", color: "#D672E3" },
-]
-
-const chartData = {
-  labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-  datasets: [
-    {
-      label: 'Actual',
-      data: [1200, 900, 600, 300, 50, 100, 200, 400, 600, 800, 1000, 1100],
-      backgroundColor: '#464DC2',
-      borderColor: '',
-      borderWidth: 1,
-      borderRadius: 25,
-      pointStyle: 'circle',
-    },
-    {
-      label: 'Goal',
-      data: [1200, 900, 600, 300, 50, 100, 200, 400, 600, 800, 1000, 1100],
-      backgroundColor: '#B75CC3',
-      borderColor: '',
-      borderWidth: 1,
-      borderRadius: 25,
-    },
-  ],
-}
-
-const ops = {
-  plugins: {
-    legend: {
-      display: true,
-      position: 'top',
-      align: 'start',
-      labels: {
-        usePointStyle: 'true',
-        boxWidth: 20,
-        padding: 12,
-      }
-    }
-  },
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
-  },
-};
 
 const DashboardContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: inherit;
+  width: 1000px;
+
   flex-wrap: wrap;
-  gap: 20px;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
 `;
 
 const DashboardHeader = styled.div`
   color: white;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 20px 0 20px 20px;
   font-size: 40px;
@@ -141,10 +53,13 @@ const DashboardHeader = styled.div`
 `;
 
 const DashboardBody = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  width: 100%;
+  overflow: hidden;
 `;
 
 const DashboardTotalGrossBoard = styled.div`
@@ -178,6 +93,8 @@ const DashboardTotalSoldBoard = styled.div`
 `;
 
 const DashboardYearHistoryBoard = styled.div`
+  grid-area: 2 / 1 / 3 / 3;
+  width: 200%;
   background-color: #21242c;
   color: white;
   padding: 20px 20px 20px 20px;
@@ -205,7 +122,7 @@ const DashboardNotificationBoard = styled.div`
   flex-wrap: wrap;
   max-width: auto;
   min-height: 175px;
-  width: 350px;
+  width: 400px;
   justify-content: flex-start;
   align-items: center;
 `;
@@ -267,6 +184,7 @@ const DashboardMonthToDateProjectionsBoard = styled.div`
   min-height: 175px;
   justify-content: flex-start;
   align-items: center;
+  grid-area: 2 / 3 / 3 / 5;
 `;
 
 const DashboardSalesFinManagementBoard = styled.div`
@@ -304,6 +222,11 @@ const DashBoardView = () => {
   const [goal, setGoal] = useState(950000);
   const [salegoal, setSaleGoal] = useState(200);
   const [ actual, setActual] = useState(207);
+  const [isActual, setIsActual] = useState(true);
+
+  useEffect(() => {
+
+  })
 
   // formatted numbers
   const progress = pace / goal;
@@ -314,25 +237,31 @@ const DashBoardView = () => {
 
   return (
     <div className="container">
-      <DashboardContainer>
-        <DashboardHeader>
+      <DashboardHeader>
+        <div className="dashboard-title">
           Dashboard
           <CalendarTodayIcon fontSize="large" color="gray" />
-        </DashboardHeader>
-        <DashboardBody>
-          <DashboardTotalGrossBoard>
-            <div className="dashboard-board-title">
-              <p className="boardTitle">Total gross</p>
-              <Dropdown options={options}/>
-            </div>
-            <p className="boardTitleNumber">${p}</p>
-            <p className="progressText">{`Pacing: $${p} / Goal: $${g}`}</p>
-            <Progressbar
-              actual={pace}
-              goal={goal}
-              showVariance={showVariance}
+        </div>
+        <div className="dashboard-options">
+          <span className="dashboard-option">Actual</span>
+          <span className="dashboard-option">Projections</span>
+        </div>
+      </DashboardHeader>
+      <DashboardBody>
+        <DashboardTotalGrossBoard>
+          <div className="dashboard-board-title">
+            <p className="boardTitle">Total gross</p>
+            <Dropdown options={options}/>
+          </div>
+          <p className="boardTitleNumber">${p}</p>
+          <p className="progressText">{`Pacing: $${p} / Goal: $${g}`}</p>
+          <Progressbar
+            actual={pace}
+            goal={goal}
+            showVariance={showVariance}
             />
-          </DashboardTotalGrossBoard>
+        </DashboardTotalGrossBoard>
+        <div>
           <DashboardTotalSoldBoard>
             <div className="dashboard-board-title">
                 <p className="boardTitle">Total sold</p>
@@ -345,18 +274,8 @@ const DashBoardView = () => {
               showVariance={showVariance}
             />
           </DashboardTotalSoldBoard>
-          <DashboardYearHistoryBoard>
-            <div className="dashboard-board-title">
-                <p className="boardTitle">12 Month History</p>
-                <Dropdown options={yearlyOptions}/>
-            </div>
-            <div className="yearly-calendar">
-              <Bar data={chartData} options={ops} />
-            </div>
-          </DashboardYearHistoryBoard>
-          <DashboardMonthToDateProjectionsBoard>
-            <MTDProgess/>
-          </DashboardMonthToDateProjectionsBoard>
+        </div>
+        <div>
           <DashboardSalesProsBoard>
             <div className="dashboard-board-title">
                 <p className="boardTitle">Sales Pros</p>
@@ -386,19 +305,40 @@ const DashBoardView = () => {
               }
             </div>
           </DashboardSalesProsBoard>
+        </div>
+        <div>
           <DashboardOutreachBoard>
             <div className="dashboard-board-title">
               <p className="boardTitle">Outreach</p>
-              <Dropdown options={salesproOptions}/>
+              <Dropdown options={outreachOptions}/>
             </div>
             <div className="progress-container">
-              
+              <Doughnut data={outreachData} options={outreachConfig}/>
             </div>
           </DashboardOutreachBoard>
+        </div>
+        <div>
+          <DashboardYearHistoryBoard>
+            <div className="dashboard-board-title">
+                <p className="boardTitle">12 Month History</p>
+                <Dropdown options={yearlyOptions}/>
+            </div>
+            <div className="yearly-calendar">
+              <Bar data={chartData} options={ops} />
+            </div>
+          </DashboardYearHistoryBoard>
+        </div>
+        <div>
+          <DashboardMonthToDateProjectionsBoard>
+            <MTDProgess/>
+          </DashboardMonthToDateProjectionsBoard>
+        </div>
+        
+        <div>
           <DashboardSalesFinManagementBoard>
             <div className="dashboard-board-title">
               <p className="boardTitle">Sales/Fin. Managers</p>
-              <Dropdown options={salesproOptions}/>
+              <Dropdown options={salesFinOptions}/>
             </div>
             <div className="sales-pro-container">
               {
@@ -424,6 +364,8 @@ const DashBoardView = () => {
               }
             </div>
           </DashboardSalesFinManagementBoard>
+        </div>
+        <div>
           <DashboardFixedOperationBoard>
             <div className="dashboard-board-title">
               <p className="boardTitle">Fixed Operations</p>
@@ -451,20 +393,29 @@ const DashBoardView = () => {
               }
             </div>
           </DashboardFixedOperationBoard>
+        </div>
+        <div>
           <DashboardNotificationBoard>
             <div className="dashboard-board-title">
               <p className="boardTitle">Notifications</p>
             </div>
             <div className="notification-list">
               {
-                notifications.map((notification) => {
+                notifications.map((notification, index) => {
                   return (
-                    <Notification notificationData={notification} />
+                    <>
+                      <Notification notificationData={notification} />
+                      {
+                        index < notifications.length - 1 ? (<hr className="dark-divider"/>) : null
+                      }
+                    </>
                   )
                 })
               }
             </div>
           </DashboardNotificationBoard>
+        </div>
+        <div>
           <DashboardServicePartsManagementBoard>
             <div className="dashboard-board-title">
               <p className="boardTitle">Srvc/Parts Managers</p>
@@ -494,8 +445,8 @@ const DashBoardView = () => {
               }
             </div>
           </DashboardServicePartsManagementBoard>
-        </DashboardBody>
-      </DashboardContainer>
+        </div>
+      </DashboardBody>
     </div>
   );
 };

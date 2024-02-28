@@ -2,6 +2,9 @@
   margin: 20px 20px 0 0;
   box-shadow: none !important;
   position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  display: flex;
 }
 
 .toggle-btn {
@@ -13,22 +16,29 @@
 }
 
 .dropdown-menu {
-  box-shadow: none !important;
+  box-shadow: none;
   height: auto;
   display: block;
-  position: absolute !important;
+  position: absolute;
   background-color: #141519;
   opacity: 0.9;
   color: #9A9B9D;
-  transform: translateX(2%);
-  width: 50px;
+  width: 50px !important;
   white-space: nowrap;
   list-style: none;
   border-width: 0px;
   border-color: transparent;
   font-size: 12px;
-  margin-top: -5px;
   padding: 5px 5px 5px 5px;
+}
+
+.dropdown-menu.inactive {
+  visibility: hidden;
+}
+
+.dropdown-menu.active {
+  visibility: visible;
+  transform: translateY(70%);
 }
 
 .dropdown-option {
@@ -36,11 +46,11 @@
   width: inherit;
   cursor: pointer;
   padding: 0 0 5px 0;
-  transition: all 0.5s ease-in-out;
+  transition: color 0.2s ease-in;
+  width: 50px;
 
   &:hover {
     color: #FFF;
-    font-size: 25px;
   }
 }
 

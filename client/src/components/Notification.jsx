@@ -1,19 +1,13 @@
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import './css/Notification.css';
 
 export const Notification = ({ notificationData }) => {
+  const cost = notificationData.cost.toFixed(2);
   return (
     <div className="notification">
       <div className='icon-background'>
-        <ReceiptLongIcon style={{ 
-          backgroundColor: '#131523', 
-          color:'#8B8C8F',
-          padding: '8px',
-          borderRadius: '50%',
-          width: '40px',
-          height: '40px',
-          }}
-        />
+        {
+          notificationData.icon
+        }
       </div>
       <div className="notification-info">
         <p className="notification-title">
@@ -23,10 +17,12 @@ export const Notification = ({ notificationData }) => {
           {notificationData.description}
         </p>
       </div>
-      <p className="cost">
-        {notificationData.cost < 0 ? 
-          `-${notificationData.cost}` : `+${notificationData.cost}`}
-      </p>
+      {cost < 0 ? 
+        (<p className="cost" style={{color: "#da615c"}}>
+          {`${cost}`}
+        </p>) : (<p className="cost" style={{color: "#64B864"}}>{`+${cost}`}</p>)
+      }
+      
     </div>
     
   )
