@@ -1,5 +1,16 @@
 import React from "react";
 import CircularProgressBar from "./CircularProgresBar";
+import "./css/MTDProgress.css";
+import "../views/styles.css";
+import Dropdown from "./DropdownButton";
+
+const options = [
+  { label: "1", value: "LAST WEEK"},
+  { label: "2", value: "LAST MONTH"},
+  { label: "3", value: "LAST 3 MONTHS"},
+  { label: "4", value: "LAST 6 MONTHS"},
+  { label: "5", value: "LAST YEAR"},
+];
 
 const MTDProgess = () => {
   const items = [
@@ -13,10 +24,13 @@ const MTDProgess = () => {
   return (
     <div className="container">
       <div className="card" style={{ backgroundColor: "#21242C" }}>
+        <div className="dashboard-board-title">
+          <p className="boardTitle">Month to Date vs Projections</p>
+          <Dropdown options={options}/>
+        </div>
         <div className="card-body">
-          <div className="row">
             {items.map((item, index) => (
-              <div key={index} className="col-lg-2 col-md-4 col-sm-6">
+              <div key={index} className="circular-progress-bar-container">
                 <div className="circular-progress-bar">
                   <CircularProgressBar
                     actual={item.actual}
@@ -27,9 +41,10 @@ const MTDProgess = () => {
                   />
                 </div>
                 <p className="text-center">{item.label}</p>
+                {index !== items.length - 1 && <div style={{ width: 20 }}></div>}
               </div>
             ))}
-          </div>
+
         </div>
       </div>
     </div>

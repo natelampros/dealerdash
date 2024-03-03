@@ -1,0 +1,38 @@
+.notification {
+  padding: auto 20px auto 20px;
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  height: 80px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification-info {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.notification-info p {
+  margin: 0 0 0 0;
+}
+
+.notification-title {
+  text-align: left;
+}
+
+.notification-description {
+  text-align: left;
+  color: #9A9B9D;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cost {
+  margin: 0 0 0 0;
+}
