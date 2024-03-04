@@ -54,16 +54,17 @@ const SidebarItem = styled.div`
     color: #ffffff;
   }
 `;
-const SidebarTitle = styled.div`
-  color: #fff; // White text color
-  padding: 10px 20px;
-  margin: 10px 0;
-  font-size: 1.2em;
-`;
+// const SidebarTitle = styled.div`
+//   color: #fff; // White text color
+//   padding: 10px 20px;
+//   margin: 10px 0;
+//   font-size: 1.2em;
+// `;
+
 // Update to SidebarContainer
 const SidebarContainer = styled.div`
   background-color: #0B0D1E;
-  width: 250px;
+  width: 20%;
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;

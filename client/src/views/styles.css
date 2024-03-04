@@ -1,24 +1,156 @@
-.container {
-  margin: 0 0 0 0 !important;
-  width: 100vw;
+/* .dashboard-body {
+  display: grid; 
+
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  
+  grid-template-areas: 
+  'total-gross total-sold sales-pro outreach'
+  'yearly month-to-date-proj'
+  'notifications fixed-operations sales-fin-managers service-parts-managers';
+  
+  gap: 20px;
+  height: 100%;
+} */
+
+.dashboard-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 100vh;
+  padding: 0 20px 0 0px;
+  position: relative;
+  overflow: auto;
 }
 
-.dashboard-title {
+.total-gross {
+  grid-area: total-gross;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+  grid-auto-rows: min-content;
+  background-color: black;
 }
 
-.dashboard-options {
+.total-sold {
+  grid-area: total-sold;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+}
+
+.sales-pro {
+  grid-area: sales-pro;
+  display: flex;
+}
+
+.outreach {
+  grid-area: outreach;
+}
+
+.yearly {
+  /* display: flex; */
+  /* flex-direction: column;
+  align-items: flex-start;*/
+  grid-area: yearly;
+}
+
+.month-to-date-proj {
+  grid-area: month-to-date-proj;
+}
+
+.notifications {
+  grid-area: notifications;
+}
+
+.fixed-operations {
+  grid-area: fixed-operations;
+}
+
+.sales-fin-managers {
+  grid-area: sales-fin-managers;
+}
+
+.service-parts-managers {
+  grid-area: service-parts-managers;
+}
+
+.dashboard-body {
+  display: grid;
   gap: 20px;
-  font-size: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  height: min-content;
+}
+
+.dynamic-height {
+  height: min-content;
+}
+
+@media screen and (max-width: 767px) {
+  .dashboard-body {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .dashboard-body {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:
+      'total-gross total-sold'
+      'sales-pro outreach'
+      'yearly yearly'
+      'month-to-date-proj month-to-date-proj'
+      'notifications fixed-operations'
+      'sales-fin-managers service-parts-managers'
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .dashboard-body {
+    grid-template-columns: repeat(4, minmax(auto, 300px));
+    grid-template-rows: repeat(3, min-content);
+    grid-template-areas: 
+      'total-gross total-sold sales-pro outreach'
+      'yearly yearly month-to-date-proj month-to-date-proj'
+      'notifications fixed-operations sales-fin-managers service-parts-managers';
+  }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 2559px) {
+  .dashboard-body {
+    grid-template-columns: repeat(4, minmax(auto, 300px));
+    grid-template-rows: repeat(3, min-content);
+    grid-template-areas: 
+      'total-gross total-sold sales-pro outreach'
+      'yearly yearly month-to-date-proj month-to-date-proj'
+      'notifications fixed-operations sales-fin-managers service-parts-managers';
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .dashboard-body {
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+.board {
+  background-color: #21242c;
+  color: white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-height: 175px;
+  justify-content: flex-start;
+  align-items: start;
+  margin: 0 0 0 0;
+  padding: 20px 20px 20px 20px;
 }
 
 .boardTitle {
@@ -60,20 +192,18 @@
 }
 
 .yearly-calendar {
-  /* align-items: center;
-  justify-content: center;
-  display: flex; */
   width: 100%;
   height: 100%;
   padding: 20px 20px 20px 20px;
 }
 
 .sales-pro-container {
-  margin: 10px auto 10px 0px;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
 }
 
 .progress-bar-header {
@@ -81,22 +211,26 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  flex-wrap: wrap;
+}
+
+.board-progress {
+  
 }
 
 .progress-bar-name {
   margin: 0 0 0 0;
   text-align: left;
-  padding: 0 20px 0 20px;
+  padding: 0;
 }
 
 .progress-bar-number {
   margin: 0 0 0 0;
   text-align: right;
-  padding: 0 20px 0 20px;
+  padding: 0;
 }
 
 .progress-bar-container {
+  width: 100%;
 }
 
 .progress-bar-name {
