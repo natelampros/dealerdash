@@ -33,6 +33,7 @@ import Chart from 'chart.js/auto';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { Notification } from '../components/Notification';
 import "./styles.css";
+import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
   const [pace, setPace] = useState(840100);
@@ -57,6 +58,7 @@ const Dashboard = () => {
   return (
     <>
       <div className="dashboard-container">
+        <Sidebar />
         <DashboardHeader>
           <DashboardTitle>
             Dashboard

@@ -8,11 +8,9 @@ import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LogoutIcon from '@mui/icons-material/Logout';
-// import PollOutlinedIcon from "@mui/icons-material/PollOutlined";
-// import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
-// import DonutSmallOutlinedIcon from "@mui/icons-material/DonutSmallOutlined";
-// import { ContactUs } from "../contact";
 import './css/Sidebar.css';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const LogoWrapper = styled.div`
   padding: 10px 0;
@@ -64,7 +62,7 @@ const SidebarItem = styled.div`
 // Update to SidebarContainer
 const SidebarContainer = styled.div`
   background-color: #0B0D1E;
-  width: 20%;
+  width: 15%;
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
@@ -108,6 +106,7 @@ const sideBarLowerMenuList = [
 ]
 
 const Sidebar = () => {
+
   return (
     <SidebarContainer>
       <div>
@@ -119,7 +118,14 @@ const Sidebar = () => {
         {
           sideBarUpperMenuList.map((menu, index) => (
             <SidebarItem key={index}>
-              {menu.icon} {menu.title}
+              {
+                menu.title === "Dashboard" ? (
+                  <Link className="link" to={`/dealerdash`}>{menu.icon} {menu.title}</Link>
+                ) : (
+                  <Link className="link" to={`/${menu.title}`}>{menu.icon} {menu.title}</Link>
+                )
+              }
+              
             </SidebarItem>
           ))
         }
@@ -127,7 +133,7 @@ const Sidebar = () => {
         { 
           sideBarLowerMenuList.map((menu, index) => (
             <SidebarItem key={index}>
-              {menu.icon} {menu.title}
+              <Link className="link" to={`/${menu.title}`}>{menu.icon} {menu.title}</Link>
             </SidebarItem>
           ))
         } 

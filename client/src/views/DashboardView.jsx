@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Dropdown from "../components/DropDownButton";
 import "./styles.css";
 import MTDProgess from "../components/MTDProgress";
+import Sidebar from "./components/Sidebar";
 // import Chart from 'chart.js/auto';
 import { Chart, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 
@@ -238,6 +239,7 @@ const DashBoardView = () => {
 
   return (
     <div className="container">
+      <Sidebar />
       <DashboardHeader>
         <div className="dashboard-title">
           Dashboard
