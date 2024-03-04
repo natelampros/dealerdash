@@ -2,10 +2,14 @@ import styled from "styled-components";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Progressbar } from "../components/Progressbar";
 import { useState, useEffect } from "react";
-import Dropdown from "../components/DropdownButton";
+import Dropdown from "../components/DropDownButton";
 import "./styles.css";
 import MTDProgess from "../components/MTDProgress";
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto';
+import { Chart, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+
+
+
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { Notification } from '../components/Notification';
 import {
@@ -26,16 +30,18 @@ import {
   ops
 } from '../mockData';
 
+Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+
+
+
 
 const DashboardContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 1000px;
-
   flex-wrap: wrap;
-  width: 100vw;
+  width: 100vw; 
   overflow: hidden;
   position: absolute;
 `;
@@ -54,12 +60,11 @@ const DashboardHeader = styled.div`
 
 const DashboardBody = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  width: 100%;
-  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr)); 
+  grid-template-rows: repeat(3, 1fr); 
+  grid-gap: 20px;
+  width: 100%; 
+  padding-bottom: 20px; 
 `;
 
 const DashboardTotalGrossBoard = styled.div`
@@ -93,23 +98,19 @@ const DashboardTotalSoldBoard = styled.div`
 `;
 
 const DashboardYearHistoryBoard = styled.div`
-  grid-area: 2 / 1 / 3 / 3;
-  width: 200%;
+  grid-area: 2 / 1 / 3 / 3; 
   background-color: #21242c;
   color: white;
-  padding: 20px 20px 20px 20px;
+  padding: 20px; 
   border-radius: 25px;
   display: flex;
-  float: left;
   overflow: hidden;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 840px;
-  height: auto;
+  max-width: 840px; 
   justify-content: flex-start;
   align-items: start;
-  margin: 0 0 0 0;
-  padding: 20px
+  margin: 0;
 `;
 
 const DashboardNotificationBoard = styled.div`
