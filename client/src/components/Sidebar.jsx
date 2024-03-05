@@ -9,7 +9,6 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LogoutIcon from '@mui/icons-material/Logout';
 import './css/Sidebar.css';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const LogoWrapper = styled.div`
@@ -39,7 +38,7 @@ const SidebarItem = styled.div`
   border-radius: 25px;
   transition: background-color 0.3s;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
   gap: 10px;
   align-items: center;
 
@@ -62,7 +61,7 @@ const SidebarItem = styled.div`
 // Update to SidebarContainer
 const SidebarContainer = styled.div`
   background-color: #0B0D1E;
-  width: 15%;
+  width: 14rem;
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
@@ -125,7 +124,6 @@ const Sidebar = () => {
                   <Link className="link" to={`/${menu.title}`}>{menu.icon} {menu.title}</Link>
                 )
               }
-              
             </SidebarItem>
           ))
         }

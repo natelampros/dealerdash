@@ -3,14 +3,11 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Progressbar } from "../components/Progressbar";
 import { useState, useEffect } from "react";
 import Dropdown from "../components/DropDownButton";
-import "./styles.css";
+import "./css/styles.css";
 import MTDProgess from "../components/MTDProgress";
 import Sidebar from "./components/Sidebar";
 // import Chart from 'chart.js/auto';
 import { Chart, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
-
-
-
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { Notification } from '../components/Notification';
 import {
@@ -32,9 +29,6 @@ import {
 } from '../mockData';
 
 Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
-
-
-
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -399,23 +393,7 @@ const DashBoardView = () => {
         </div>
         <div>
           <DashboardNotificationBoard>
-            <div className="dashboard-board-title">
-              <p className="boardTitle">Notifications</p>
-            </div>
-            <div className="notification-list">
-              {
-                notifications.map((notification, index) => {
-                  return (
-                    <>
-                      <Notification notificationData={notification} />
-                      {
-                        index < notifications.length - 1 ? (<hr className="dark-divider"/>) : null
-                      }
-                    </>
-                  )
-                })
-              }
-            </div>
+            
           </DashboardNotificationBoard>
         </div>
         <div>

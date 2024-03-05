@@ -1,163 +1,106 @@
-/* .dashboard-body {
-  display: grid; 
-
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  
-  grid-template-areas: 
-  'total-gross total-sold sales-pro outreach'
-  'yearly month-to-date-proj'
-  'notifications fixed-operations sales-fin-managers service-parts-managers';
-  
-  gap: 20px;
-  height: 100%;
-} */
-
 .dashboard-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  width: 85%;
+  width: 100vw;
   height: 100vh;
-  padding: 0 20px 0 0px;
-  position: relative;
+  gap: 20px;
+  padding: 0;
   overflow: auto;
-}
-
-.total-gross {
-  grid-area: total-gross;
-  display: flex;
-  grid-auto-rows: min-content;
-  background-color: black;
-}
-
-.total-sold {
-  grid-area: total-sold;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.sales-pro {
-  grid-area: sales-pro;
-  display: flex;
-}
-
-.outreach {
-  grid-area: outreach;
-}
-
-.yearly {
-  /* display: flex; */
-  /* flex-direction: column;
-  align-items: flex-start;*/
-  grid-area: yearly;
-}
-
-.month-to-date-proj {
-  grid-area: month-to-date-proj;
-}
-
-.notifications {
-  grid-area: notifications;
-}
-
-.fixed-operations {
-  grid-area: fixed-operations;
-}
-
-.sales-fin-managers {
-  grid-area: sales-fin-managers;
-}
-
-.service-parts-managers {
-  grid-area: service-parts-managers;
+  color: white;
+  margin: 0 20px 0 0;
 }
 
 .dashboard-body {
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 20px;
-  box-sizing: border-box;
   width: 100%;
   height: min-content;
 }
 
-.dynamic-height {
-  height: min-content;
-}
-
-@media screen and (max-width: 767px) {
-  .dashboard-body {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .dashboard-body {
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-areas:
-      'total-gross total-sold'
-      'sales-pro outreach'
-      'yearly yearly'
-      'month-to-date-proj month-to-date-proj'
-      'notifications fixed-operations'
-      'sales-fin-managers service-parts-managers'
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1439px) {
-  .dashboard-body {
-    grid-template-columns: repeat(4, minmax(auto, 300px));
-    grid-template-rows: repeat(3, min-content);
-    grid-template-areas: 
-      'total-gross total-sold sales-pro outreach'
-      'yearly yearly month-to-date-proj month-to-date-proj'
-      'notifications fixed-operations sales-fin-managers service-parts-managers';
-  }
-}
-
-@media screen and (min-width: 1440px) and (max-width: 2559px) {
-  .dashboard-body {
-    grid-template-columns: repeat(4, minmax(auto, 300px));
-    grid-template-rows: repeat(3, min-content);
-    grid-template-areas: 
-      'total-gross total-sold sales-pro outreach'
-      'yearly yearly month-to-date-proj month-to-date-proj'
-      'notifications fixed-operations sales-fin-managers service-parts-managers';
-  }
-}
-
-@media screen and (min-width: 2560px) {
-  .dashboard-body {
-    grid-template-columns: repeat(4, 25%);
-    grid-template-rows: repeat(3, 1fr);
-  }
-}
-
 .board {
   background-color: #21242c;
-  color: white;
   border-radius: 25px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 100%;
-  min-height: 175px;
+  height: min-content;
+  max-height: 30rem;
+  max-width: 25%;
+  margin: 0;
+  padding: 20px;
+}
+
+.total-gross {
+  display: flex;
+  background-color: black;
   justify-content: flex-start;
   align-items: start;
-  margin: 0 0 0 0;
-  padding: 20px 20px 20px 20px;
+  background-color: #21242c;
+  border-radius: 25px;
+  max-height: 175px;
+  max-width: 25%;
+  flex: 1;
+}
+
+.total-sold {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: start;
+  flex: 1;
+}
+
+.sales-pro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.outreach {
+  flex: 1;
+}
+
+.yearly {
+  flex-grow: 2 0 20%;
+}
+
+.month-to-date-proj {
+  width: min-content;
+  flex: 4;
+}
+
+.notifications {
+  flex: 1;
+}
+
+.fixed-operations {
+  flex: 1;
+}
+
+.sales-fin-managers {
+  flex: 1;
+}
+
+.service-parts-managers {
+  flex: 1;
+}
+
+.board-info {
+  width: 100%;
 }
 
 .boardTitle {
-  margin: 20px 0 0 20px;
-  margin-left: 20px;
+  margin: 0;
   text-align: left;
-  width: 50%;
   font-size: 20px;
   color: white;
   max-height: 52px;
@@ -179,12 +122,13 @@
   margin-bottom: 5px;
 }
 
-.dashboard-board-title {
-  width: 100%;
+.dashboard-title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  margin: 0 0 20px 0;
 }
 
 .circle {
@@ -231,6 +175,7 @@
 
 .progress-bar-container {
   width: 100%;
+  margin: 0 0 20px 0;
 }
 
 .progress-bar-name {
@@ -242,7 +187,14 @@
 }
 
 .notification-list {
-  width: inherit;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
 }
 
 .dark-divider {
@@ -269,4 +221,16 @@
   justify-content: flex-start;
   align-items: start;
   margin: 0 0 0 0;
+}
+
+.main-options {
+  font-size: 20px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.progress-number {
+  transform: translate(-12%, -660%);
 }

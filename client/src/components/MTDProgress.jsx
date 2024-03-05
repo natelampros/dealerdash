@@ -24,7 +24,7 @@ const MTDProgess = () => {
   return (
     <>
       <div className="card" style={{ backgroundColor: "#21242C" }}>
-        <div className="dashboard-board-title">
+        <div className="dashboard-title">
           <p className="boardTitle">Month to Date vs Projections</p>
           <Dropdown options={options}/>
         </div>

@@ -1,3 +1,10 @@
+.card-body {
+  display: flex;
+  flex-direction: row;
+  border: none !important;
+  padding: 0 !important;
+}
+
 .container {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
@@ -7,12 +14,7 @@
 
 .card {
   border-radius: 25px;
-  border-width: 0px;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: row;
+  border: none !important;
 }
 
 .circular-progress-bar-container {

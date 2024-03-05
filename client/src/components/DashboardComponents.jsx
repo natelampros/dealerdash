@@ -16,19 +16,18 @@ const DashboardHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0 20px 20px;
+  padding: 20px 0 20px 0px;
   font-size: 40px;
-  align-items: center;
   gap: 10px;
   width: 100%;
 `;
 
 const DashboardTitle = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  word-break: break-all;
 `
 
 const DashboardOptions = styled.div`
