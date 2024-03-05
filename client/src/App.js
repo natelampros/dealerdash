@@ -2,18 +2,21 @@ import React from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from './views/Dashboard';
+import DashBoardView from './views/DashboardView';
 import Daily from './views/Daily';
 import Report from './views/Report';
 import History from './views/History';
 import Settings from './views/Settings';
 import Notifications from './views/Notifications';
 import { Routes, Route } from 'react-router-dom';
+import Sidebar from "./components/Sidebar";
 // import GoogleFormComponent from './GoogleFormComponent';
 
 function App() {
   return (
     <div className="App">
       <div className="app-container">
+        <Sidebar />
         <Routes>
           <Route path="/dealerdash" element={<Dashboard/>} />
           <Route path="/daily" element={<Daily/>} />

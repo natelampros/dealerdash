@@ -1,16 +1,24 @@
 .dashboard-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  width: 1680px;
+  width: 100%;
   height: 100vh;
-  gap: 20px;
   padding: 0;
   overflow: auto;
   color: white;
   margin: 0 20px 0 0;
+}
+
+.container {
+  margin: 0;
+  /* display: flex; */
+  /* flex-direction: row;
+  justify-content: flex-start; */
+  width: 100%;
+  height: 100vh;
 }
 
 .dashboard-body {
@@ -28,10 +36,8 @@
   display: flex;
   flex-wrap: wrap;
   height: min-content;
-  flex: 1 1 auto;
   padding: 20px;
-  max-height: 25rem;
-  max-width: 25rem;
+  max-height: 22rem;
   margin: 10px;
 }
 
@@ -44,6 +50,8 @@
   background-color: #21242c;
   border-radius: 25px;
   max-height: 175px !important;
+  flex-grow: 1;
+  max-width: 24%;
 }
 
 .total-sold {
@@ -52,6 +60,10 @@
   justify-content: flex-start;
   align-items: start;
   max-height: 175px !important;
+  flex-grow: 1;
+  max-width: 24%;
+
+
 }
 
 .sales-pro {
@@ -60,33 +72,61 @@
   justify-content: flex-start;
   align-items: flex-start;
   height: auto;
+  max-width: 24%;
+  flex-grow: 1;
+
 }
 
 .outreach {
+  flex-grow: 1;
+  max-width: 24%;
+
 }
 
 .yearly {
   /* height: 40rem !important; */
-  max-width: 820px !important;
-  max-height: 40rem !important;
+  /* max-width: 820px !important; */
+  flex-grow: 2;
+  max-height: 30rem !important;
+  max-width: 50%;
 }
 
 .month-to-date-proj {
-  width: min-content;
-  max-width: 820px !important;
-  max-height: 40rem !important;
+  flex-grow: 2;
+  /* max-width: 820px !important; */
+  max-height: 20rem;
+  max-width: 50%;
+  width: 50%;
 }
 
 .notifications {
+  flex-grow: 1;
+  max-width: 24%;
+  max-height: 33%;
 }
 
 .fixed-operations {
+  flex-grow: 1;
+  max-width: 24%;
+  max-height: 33%;
+
+
 }
 
 .sales-fin-managers {
+  flex-grow: 1;
+  max-width: 24%;
+  max-height: 33%;
+
+
 }
 
 .service-parts-managers {
+  flex-grow: 1;
+  max-width: 24%;
+  max-height: 33%;
+
+
 }
 
 .board-info {
@@ -138,8 +178,7 @@
 
 .yearly-calendar {
   width: 100%;
-  height: 100%;
-  padding: 20px 20px 20px 20px;
+  height: 20rem;
 }
 
 .sales-pro-container {

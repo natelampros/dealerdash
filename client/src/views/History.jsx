@@ -68,13 +68,11 @@ const keyMetricsList = [
 const History = () => {
   return (
     <div className='history-container'>
-      <Sidebar />
       <div className="history-body">
-
-        <div className='boardTitle'>
-          Select Key Metrics to View:
-        </div>
         <div className="key-metrics-options">
+          <div className='boardTitle'>
+            Select Key Metrics to View:
+          </div>
           {
             keyMetricsList.map((item) => {
               return (

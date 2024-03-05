@@ -57,9 +57,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <div className="navbar">
-        <Sidebar />
-      </div>
       <DashboardHeader>
         <div className="title">
           Dashboard
