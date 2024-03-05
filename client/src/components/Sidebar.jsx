@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import icon from "../icon.png";
-import GridViewIcon from "@mui/icons-material/GridView";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import ContentPasteOutlinedIcon from "@mui/icons-material/ContentPasteOutlined";
-import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
-import SettingsIcon from "@mui/icons-material/Settings";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import LogoutIcon from "@mui/icons-material/Logout";
 // import PollOutlinedIcon from "@mui/icons-material/PollOutlined";
 // import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 // import DonutSmallOutlinedIcon from "@mui/icons-material/DonutSmallOutlined";

@@ -8,13 +8,7 @@ import MTDProgess from "../components/MTDProgress";
 // import Chart from 'chart.js/auto';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { Notification } from '../components/Notification';
-
 import { Chart, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
-
-
-
-import { Bar, Doughnut } from 'react-chartjs-2';
-import { Notification } from '../components/Notification';
 import {
   notifications,
   salesproData,
