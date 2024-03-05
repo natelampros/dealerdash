@@ -4,7 +4,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 1680px;
   height: 100vh;
   gap: 20px;
   padding: 0;
@@ -17,44 +17,41 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-start;
   width: 100%;
-  height: min-content;
+  height: 100%;
 }
 
 .board {
   background-color: #21242c;
   border-radius: 25px;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   height: min-content;
-  max-height: 30rem;
-  max-width: 25%;
-  margin: 0;
+  flex: 1 1 auto;
   padding: 20px;
+  max-height: 25rem;
+  max-width: 25rem;
+  margin: 10px;
 }
 
 .total-gross {
   display: flex;
   background-color: black;
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: start;
+  align-items: flex-start;
   background-color: #21242c;
   border-radius: 25px;
-  max-height: 175px;
-  max-width: 25%;
-  flex: 1;
+  max-height: 175px !important;
 }
 
 .total-sold {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   justify-content: flex-start;
   align-items: start;
-  flex: 1;
+  max-height: 175px !important;
 }
 
 .sales-pro {
@@ -62,40 +59,44 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  flex: 1;
+  height: auto;
 }
 
 .outreach {
-  flex: 1;
 }
 
 .yearly {
-  flex-grow: 2 0 20%;
+  /* height: 40rem !important; */
+  max-width: 820px !important;
+  max-height: 40rem !important;
 }
 
 .month-to-date-proj {
   width: min-content;
-  flex: 4;
+  max-width: 820px !important;
+  max-height: 40rem !important;
 }
 
 .notifications {
-  flex: 1;
 }
 
 .fixed-operations {
-  flex: 1;
 }
 
 .sales-fin-managers {
-  flex: 1;
 }
 
 .service-parts-managers {
-  flex: 1;
 }
 
 .board-info {
   width: 100%;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .boardTitle {
@@ -206,21 +207,6 @@
 
 .progress-container {
   margin: 0 auto;
-}
-
-#total-gross-board {
-  background-color: #21242c;
-  color: white;
-  padding: all 20px;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 420px;
-  min-height: 175px;
-  justify-content: flex-start;
-  align-items: start;
-  margin: 0 0 0 0;
 }
 
 .main-options {

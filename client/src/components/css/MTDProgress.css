@@ -15,6 +15,7 @@
 .card {
   border-radius: 25px;
   border: none !important;
+  width: 100%;
 }
 
 .circular-progress-bar-container {
