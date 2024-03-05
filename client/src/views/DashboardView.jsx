@@ -6,7 +6,7 @@ import Dropdown from "../components/DropDownButton";
 import "./styles.css";
 import MTDProgess from "../components/MTDProgress";
 // import Chart from 'chart.js/auto';
-import { Chart, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+import { Chart, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 
 
 
@@ -30,7 +30,7 @@ import {
   ops
 } from '../mockData';
 
-Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+Chart.register(ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 
 

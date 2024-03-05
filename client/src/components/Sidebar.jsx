@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import icon from "../icon.png";
-import GridViewIcon from '@mui/icons-material/GridView';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
-import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
-import SettingsIcon from '@mui/icons-material/Settings';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import LogoutIcon from '@mui/icons-material/Logout';
+import GridViewIcon from "@mui/icons-material/GridView";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import ContentPasteOutlinedIcon from "@mui/icons-material/ContentPasteOutlined";
+import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
+import SettingsIcon from "@mui/icons-material/Settings";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import LogoutIcon from "@mui/icons-material/Logout";
 // import PollOutlinedIcon from "@mui/icons-material/PollOutlined";
 // import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 // import DonutSmallOutlinedIcon from "@mui/icons-material/DonutSmallOutlined";
 // import { ContactUs } from "../contact";
-import './css/Sidebar.css';
+import "./css/Sidebar.css";
+// ... other imports
+import ModalOverlay from "../modals/ModalOverlay";
+import DailyModalContent from "../modals/DailyModalContent";
 
 const LogoWrapper = styled.div`
   padding: 10px 0;
@@ -30,7 +33,7 @@ const LogoImage = styled.img`
   max-width: 20%;
   border-radius: 10px;
   height: auto;
-  background-color: #696FF2;
+  background-color: #696ff2;
 `;
 
 const SidebarItem = styled.div`
@@ -54,15 +57,15 @@ const SidebarItem = styled.div`
     color: #ffffff;
   }
 `;
-const SidebarTitle = styled.div`
-  color: #fff; // White text color
-  padding: 10px 20px;
-  margin: 10px 0;
-  font-size: 1.2em;
-`;
+// const SidebarTitle = styled.div`
+//   color: #fff; // White text color
+//   padding: 10px 20px;
+//   margin: 10px 0;
+//   font-size: 1.2em;
+// `;
 // Update to SidebarContainer
 const SidebarContainer = styled.div`
-  background-color: #0B0D1E;
+  background-color: #0b0d1e;
   width: 250px;
   height: 100vh;
   padding: 20px;
@@ -83,30 +86,47 @@ const sideBarUpperMenuList = [
   },
   {
     title: "Report",
-    icon: <ContentPasteOutlinedIcon />
+    icon: <ContentPasteOutlinedIcon />,
   },
   {
     title: "History",
-    icon: <ContentCopyOutlinedIcon/>
+    icon: <ContentCopyOutlinedIcon />,
   },
-]
+];
 
 const sideBarLowerMenuList = [
   {
     title: "Settings",
-    icon: <SettingsIcon />
+    icon: <SettingsIcon />,
   },
   {
     title: "Notifications",
-    icon: <NotificationsNoneIcon />
+    icon: <NotificationsNoneIcon />,
   },
   {
     title: "Sign Out",
-    icon: <LogoutIcon />
-  }
-]
+    icon: <LogoutIcon />,
+  },
+];
 
 const Sidebar = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    console.log("Opening modal");
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleSidebarItemClick = (title) => {
+    if (title === "Daily") {
+      openModal();
+    }
+  };
+
   return (
     <SidebarContainer>
       <div>
@@ -115,21 +135,21 @@ const Sidebar = () => {
           Dealer Dash
         </LogoWrapper>
         {/*<SidebarHeader>Dealer Dash</SidebarHeader>*/}
-        {
-          sideBarUpperMenuList.map((menu, index) => (
-            <SidebarItem key={index}>
-              {menu.icon} {menu.title}
-            </SidebarItem>
-          ))
-        }
-        <hr className="divider"/>
-        { 
-          sideBarLowerMenuList.map((menu, index) => (
-            <SidebarItem key={index}>
-              {menu.icon} {menu.title}
-            </SidebarItem>
-          ))
-        } 
+        {sideBarUpperMenuList.map((menu, index) => (
+          <SidebarItem
+            key={index}
+            onClick={() => handleSidebarItemClick(menu.title)} // Use the handler function
+          >
+            {menu.icon} {menu.title}
+          </SidebarItem>
+        ))}
+        <hr className="divider" />
+        {sideBarLowerMenuList.map((menu, index) => (
+          <SidebarItem key={index}>
+            {menu.icon} {menu.title}
+          </SidebarItem>
+        ))}
+
         {/* <SidebarItem>Survey</SidebarItem>s */}
       </div>
       {/* ... other sidebar items */}
@@ -137,6 +157,11 @@ const Sidebar = () => {
         {/* <SidebarTitle>Contact Us</SidebarTitle>
         <ContactUs /> */}
       </div>
+      {isModalOpen && (
+        <ModalOverlay onClose={closeModal}>
+          <DailyModalContent onClose={closeModal} />
+        </ModalOverlay>
+      )}
     </SidebarContainer>
   );
 };
