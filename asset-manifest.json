@@ -1,16 +1,14 @@
 {
   "files": {
-    "main.css": "/dealerdash/static/css/main.625877ac.css",
-    "main.js": "/dealerdash/static/js/main.1d62393d.js",
-    "static/js/787.7801daa8.chunk.js": "/dealerdash/static/js/787.7801daa8.chunk.js",
-    "static/media/logo.png": "/dealerdash/static/media/logo.8a2a6c885bcb6fd64fc0.png",
+    "main.css": "/dealerdash/static/css/main.5be1eb1a.css",
+    "main.js": "/dealerdash/static/js/main.99f93920.js",
+    "static/media/icon.png": "/dealerdash/static/media/icon.50114f1f47ce454a286b.png",
     "index.html": "/dealerdash/index.html",
-    "main.625877ac.css.map": "/dealerdash/static/css/main.625877ac.css.map",
-    "main.1d62393d.js.map": "/dealerdash/static/js/main.1d62393d.js.map",
-    "787.7801daa8.chunk.js.map": "/dealerdash/static/js/787.7801daa8.chunk.js.map"
+    "main.5be1eb1a.css.map": "/dealerdash/static/css/main.5be1eb1a.css.map",
+    "main.99f93920.js.map": "/dealerdash/static/js/main.99f93920.js.map"
   },
   "entrypoints": [
-    "static/css/main.625877ac.css",
-    "static/js/main.1d62393d.js"
+    "static/css/main.5be1eb1a.css",
+    "static/js/main.99f93920.js"
   ]
 }
