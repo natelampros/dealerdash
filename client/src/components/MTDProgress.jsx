@@ -2,7 +2,7 @@ import React from "react";
 import CircularProgressBar from "./CircularProgresBar";
 import "./css/MTDProgress.css";
 import "../views/styles.css";
-import Dropdown from "./DropdownButton";
+import Dropdown from "./DropDownButton";
 
 const options = [
   { label: "1", value: "LAST WEEK"},
@@ -22,9 +22,9 @@ const MTDProgess = () => {
   ];
 
   return (
-    <div className="container">
+    <>
       <div className="card" style={{ backgroundColor: "#21242C" }}>
-        <div className="dashboard-board-title">
+        <div className="dashboard-title">
           <p className="boardTitle">Month to Date vs Projections</p>
           <Dropdown options={options}/>
         </div>
@@ -47,7 +47,7 @@ const MTDProgess = () => {
 
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

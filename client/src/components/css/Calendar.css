@@ -1,0 +1,6 @@
+.datePicker {
+  /* Existing styles... */
+  .MuiPickersCalendarHeader-days { /* Target day headers element */
+    color: #fff; /* Set text color to white */
+  }
+}

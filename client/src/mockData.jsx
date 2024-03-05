@@ -40,18 +40,18 @@ const notifications = [
         />, title: "CIT", description: "Brief notification description of CIT and its cost", cost: -1850},
 ]
 
- const colors = [
+const colors = [
   { purple: '#464DC2' }
 ]
 
- const salesproData = [
+const salesproData = [
   { key: "1", name: "John Davis", actual: "18", goal: "22" },
   { key: "2", name: "Steve Lacy", actual: "15", goal: "25" },
   { key: "3", name: "Jordan Lee", actual: "6", goal: "18" },
   { key: "4", name: "Chris Parker", actual: "10", goal: "22" }
 ]
 
- const srvcPartsData = [
+const srvcPartsData = [
   { key: "1", name: "John Davis", actual: "23", goal: "22" },
   { key: "2", name: "Steve Lacy", actual: "24", goal: "25" },
   { key: "3", name: "Jordan Lee", actual: "16", goal: "18" },
@@ -59,7 +59,7 @@ const notifications = [
   { key: "5", name: "Sasm Kelley", actual: "26", goal: "25" }
 ]
 
- const salesFinData = [
+const salesFinData = [
   { key: "1", name: "John Davis", actual: "23", goal: "22" },
   { key: "2", name: "Steve Lacy", actual: "24", goal: "25" },
   { key: "3", name: "Jordan Lee", actual: "16", goal: "18" },
@@ -67,7 +67,7 @@ const notifications = [
   { key: "5", name: "Sasm Kelley", actual: "26", goal: "25" }
 ]
 
- const fixedopData = [
+const fixedopData = [
   { key: "1", name: "Service Gross", actual: 125340, goal: 120000 },
   { key: "2", name: "Parts Gross", actual: 105340, goal: 120000 },
   { key: "3", name: "Total RO", actual: 1234, goal: 1250 },
@@ -75,30 +75,30 @@ const notifications = [
   { key: "5", name: "Hours Per RO", actual: 22, goal: 25 }
 ]
 
- const options = [
+const options = [
   { label: "1", value: "TOTAL"},
   { label: "2", value: "GROSS"},
   { label: "3", value: "NET"},
 ];
 
- const outreachOptions = [
+const outreachOptions = [
   { label: "1", value: "TOTAL"},
 ]
 
- const salesFinOptions = [
+const salesFinOptions = [
   { label: "1", value: "UNITS SOLD"},
 ]
 
- const salesproOptions = [
+const salesproOptions = [
   { label: "1", value: "CARS SOLD"},
 ]
 
- const yearlyOptions = [
+const yearlyOptions = [
   { label: "1", value: "GROSS"},
   { label: "2", value: "NET"},
 ]
 
- const outreachData = {
+const outreachData = {
   labels: [
     'Blue',
     'Green',
@@ -126,7 +126,7 @@ const notifications = [
   }], 
 };
 
- const outreachConfig = {
+const outreachConfig = {
   options: {
     aspectRatio: 0.7,
     responsive: true,
@@ -154,7 +154,7 @@ const notifications = [
 };
 
 
- const chartData = {
+const chartData = {
   labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
   datasets: [
     {
@@ -177,7 +177,7 @@ const notifications = [
   ],
 }
 
- const ops = {
+const ops = {
   plugins: {
     legend: {
       display: true,

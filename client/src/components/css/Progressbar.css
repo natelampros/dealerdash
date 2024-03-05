@@ -1,7 +1,7 @@
 .progress-bar {
-  background-color: #131523;
+  background-color: #131523 !important;
   border-radius: 25px;
-  width: 300px;
+  width: 20rem;
   height: 20px;
   border-radius: 25px;
   overflow: hidden;
@@ -12,10 +12,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 0 20px 20px 20px;
-  width: relative;
+  margin: 0;
   height: 20px;
+  width: 100%;
   position: relative;
+  gap: 10px;
 }
 
 .progress-bar-fill {
@@ -42,6 +43,6 @@
 
 .pace {
   position: absolute;
-  margin: 0px 0 0 10px;
+  margin: 0px 0 0 10px !important;
   font-size: 14px;
 }

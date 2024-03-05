@@ -16,6 +16,16 @@ import "./css/Sidebar.css";
 // ... other imports
 import ModalOverlay from "../modals/ModalOverlay";
 import DailyModalContent from "../modals/DailyModalContent";
+import GridViewIcon from '@mui/icons-material/GridView';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
+import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
+import SettingsIcon from '@mui/icons-material/Settings';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import LogoutIcon from '@mui/icons-material/Logout';
+import './css/Sidebar.css';
+import { Link } from 'react-router-dom';
+
 
 const LogoWrapper = styled.div`
   padding: 10px 0;
@@ -44,7 +54,7 @@ const SidebarItem = styled.div`
   border-radius: 25px;
   transition: background-color 0.3s;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
   gap: 10px;
   align-items: center;
 
@@ -63,10 +73,11 @@ const SidebarItem = styled.div`
 //   margin: 10px 0;
 //   font-size: 1.2em;
 // `;
+
 // Update to SidebarContainer
 const SidebarContainer = styled.div`
-  background-color: #0b0d1e;
-  width: 250px;
+  background-color: #0B0D1E;
+  width: 14rem;
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
@@ -110,6 +121,7 @@ const sideBarLowerMenuList = [
 ];
 
 const Sidebar = () => {
+
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -127,6 +139,7 @@ const Sidebar = () => {
     }
   };
 
+
   return (
     <SidebarContainer>
       <div>
@@ -135,6 +148,7 @@ const Sidebar = () => {
           Dealer Dash
         </LogoWrapper>
         {/*<SidebarHeader>Dealer Dash</SidebarHeader>*/}
+
         {sideBarUpperMenuList.map((menu, index) => (
           <SidebarItem
             key={index}
@@ -149,6 +163,7 @@ const Sidebar = () => {
             {menu.icon} {menu.title}
           </SidebarItem>
         ))}
+
 
         {/* <SidebarItem>Survey</SidebarItem>s */}
       </div>

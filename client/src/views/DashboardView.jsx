@@ -6,6 +6,9 @@ import Dropdown from "../components/DropDownButton";
 import "./styles.css";
 import MTDProgess from "../components/MTDProgress";
 // import Chart from 'chart.js/auto';
+import { Bar, Doughnut } from 'react-chartjs-2';
+import { Notification } from '../components/Notification';
+
 import { Chart, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 
 
@@ -218,6 +221,7 @@ const DashboardServicePartsManagementBoard = styled.div`
   align-items: center;
 `;
 
+
 const DashBoardView = () => {
   const [pace, setPace] = useState(840100);
   const [goal, setGoal] = useState(950000);
@@ -238,216 +242,16 @@ const DashBoardView = () => {
 
   return (
     <div className="container">
-      <DashboardHeader>
-        <div className="dashboard-title">
-          Dashboard
-          <CalendarTodayIcon fontSize="large" color="gray" />
-        </div>
-        <div className="dashboard-options">
-          <span className="dashboard-option">Actual</span>
-          <span className="dashboard-option">Projections</span>
-        </div>
-      </DashboardHeader>
-      <DashboardBody>
-        <DashboardTotalGrossBoard>
-          <div className="dashboard-board-title">
-            <p className="boardTitle">Total gross</p>
-            <Dropdown options={options}/>
-          </div>
-          <p className="boardTitleNumber">${p}</p>
-          <p className="progressText">{`Pacing: $${p} / Goal: $${g}`}</p>
-          <Progressbar
-            actual={pace}
-            goal={goal}
-            showVariance={showVariance}
-            />
-        </DashboardTotalGrossBoard>
-        <div>
-          <DashboardTotalSoldBoard>
-            <div className="dashboard-board-title">
-                <p className="boardTitle">Total sold</p>
-                <Dropdown options={options}/>
-            </div>
-            <p className="progressText">{`${actual} / ${salegoal} `}</p>
-            <Progressbar
-              actual={actual}
-              goal={salegoal}
-              showVariance={showVariance}
-            />
-          </DashboardTotalSoldBoard>
-        </div>
-        <div>
-          <DashboardSalesProsBoard>
-            <div className="dashboard-board-title">
-                <p className="boardTitle">Sales Pros</p>
-                <Dropdown options={salesproOptions}/>
-            </div>
-            <div className="sales-pro-container">
-              {
-                salesproData.map((data) => {
-                  return (
-                    <div className="progress-bar-container">
-                      <div className="progress-bar-header">
-                        <p className="progress-bar-name">
-                          {`${data.name}`}
-                        </p>
-                        <p className="progress-bar-number">
-                          {`${data.actual} / ${data.goal}`}
-                        </p>
-                      </div>
-                      <Progressbar
-                        actual={data.actual}
-                        goal={data.goal}
-                        showVariance={false}
-                      />
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </DashboardSalesProsBoard>
-        </div>
-        <div>
-          <DashboardOutreachBoard>
-            <div className="dashboard-board-title">
-              <p className="boardTitle">Outreach</p>
-              <Dropdown options={outreachOptions}/>
-            </div>
-            <div className="progress-container">
-              <Doughnut data={outreachData} options={outreachConfig}/>
-            </div>
-          </DashboardOutreachBoard>
-        </div>
-        <div>
-          <DashboardYearHistoryBoard>
-            <div className="dashboard-board-title">
-                <p className="boardTitle">12 Month History</p>
-                <Dropdown options={yearlyOptions}/>
-            </div>
-            <div className="yearly-calendar">
-              <Bar data={chartData} options={ops} />
-            </div>
-          </DashboardYearHistoryBoard>
-        </div>
-        <div>
-          <DashboardMonthToDateProjectionsBoard>
-            <MTDProgess/>
-          </DashboardMonthToDateProjectionsBoard>
-        </div>
-        
-        <div>
-          <DashboardSalesFinManagementBoard>
-            <div className="dashboard-board-title">
-              <p className="boardTitle">Sales/Fin. Managers</p>
-              <Dropdown options={salesFinOptions}/>
-            </div>
-            <div className="sales-pro-container">
-              {
-                salesFinData.map((data) => {
-                  return (
-                    <div className="progress-bar-container">
-                      <div className="progress-bar-header">
-                        <p className="progress-bar-name">
-                          {`${data.name}`}
-                        </p>
-                        <p className="progress-bar-number">
-                          {`${data.actual} / ${data.goal}`}
-                        </p>
-                      </div>
-                      <Progressbar
-                        actual={data.actual}
-                        goal={data.goal}
-                        showVariance={false}
-                      />
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </DashboardSalesFinManagementBoard>
-        </div>
-        <div>
-          <DashboardFixedOperationBoard>
-            <div className="dashboard-board-title">
-              <p className="boardTitle">Fixed Operations</p>
-            </div>
-            <div className="sales-pro-container">
-              {
-                fixedopData.map((data) => {
-                  return (
-                    <div className="progress-bar-container">
-                      <div className="progress-bar-header">
-                        <p className="progress-bar-name">
-                          {`${data.name}`}
-                        </p>
-                      </div>
-                      <Progressbar
-                        actual={data.actual}
-                        goal={data.goal}
-                        showVariance={true}
-                        showPace={true}
-                        fixedColor={colors.purple}
-                      />
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </DashboardFixedOperationBoard>
-        </div>
-        <div>
-          <DashboardNotificationBoard>
-            <div className="dashboard-board-title">
-              <p className="boardTitle">Notifications</p>
-            </div>
-            <div className="notification-list">
-              {
-                notifications.map((notification, index) => {
-                  return (
-                    <>
-                      <Notification notificationData={notification} />
-                      {
-                        index < notifications.length - 1 ? (<hr className="dark-divider"/>) : null
-                      }
-                    </>
-                  )
-                })
-              }
-            </div>
-          </DashboardNotificationBoard>
-        </div>
-        <div>
-          <DashboardServicePartsManagementBoard>
-            <div className="dashboard-board-title">
-              <p className="boardTitle">Srvc/Parts Managers</p>
-              <Dropdown options={salesproOptions}/>
-            </div>
-            <div className="sales-pro-container">
-              {
-                srvcPartsData.map((data) => {
-                  return (
-                    <div className="progress-bar-container">
-                      <div className="progress-bar-header">
-                        <p className="progress-bar-name">
-                          {`${data.name}`}
-                        </p>
-                        <p className="progress-bar-number">
-                          {`${data.actual} / ${data.goal}`}
-                        </p>
-                      </div>
-                      <Progressbar
-                        actual={data.actual}
-                        goal={data.goal}
-                        showVariance={false}
-                      />
-                    </div>
-                  )
-                })
-              }
-            </div>
-          </DashboardServicePartsManagementBoard>
-        </div>
-      </DashboardBody>
+      <div class="flexbox-container">
+        <div class="flexbox-item flexbox-item-1"></div>
+        <div class="flexbox-item flexbox-item-2"></div>
+        <div class="flexbox-item flexbox-item-3"></div>
+        <div class="flexbox-item flexbox-item-4"></div>
+        <div class="flexbox-item flexbox-item-5"></div>
+        <div class="flexbox-item flexbox-item-6"></div>
+        <div class="flexbox-item flexbox-item-7"></div>
+
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import VarianceIndicator from './VarianceIndicator';
 export const Progressbar = ({ actual, goal, showVariance, showPace, fixedColor }) => {
   const progress = actual / goal;
   // const variance = (((actual - goal) / goal) * 100).toFixed(2);
-  const isSuccess = actual >= goal; 
+  const isSuccess = actual >= goal;
 
   return (
     <div className="progress-diff-container">
@@ -19,7 +19,7 @@ export const Progressbar = ({ actual, goal, showVariance, showPace, fixedColor }
         />
       </div>
       {showVariance && (
-        <VarianceIndicator actual={actual} goal={goal} size="large" />
+        <VarianceIndicator actual={actual} goal={goal} size="small" />
       )}
       {showPace && (
         <p className="pace">{`Pace: $${actual} / Goal: $${goal}`}</p>
