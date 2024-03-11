@@ -34,6 +34,7 @@ CREATE TABLE MetricsDefinitions (
     MetricID SERIAL PRIMARY KEY,
     MetricName VARCHAR(255) UNIQUE NOT NULL,
     Category VARCHAR(100) NOT NULL,
+    Subcategory VARCHAR(100) NULL,
     Description TEXT
 );
 
