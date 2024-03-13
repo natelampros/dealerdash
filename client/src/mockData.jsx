@@ -1,5 +1,12 @@
 import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import GridViewIcon from '@mui/icons-material/GridView';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
+import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
+import SettingsIcon from '@mui/icons-material/Settings';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const notifications = [
   {key: "1", icon: <ReceiptLongIcon style={{ 
@@ -128,8 +135,9 @@ const outreachData = {
 
 const outreachConfig = {
   options: {
-    aspectRatio: 0.7,
+    aspectRatio: .7,
     responsive: true,
+    maintainAspectRatio: false,
   },
   title: {
     display: true,
@@ -201,6 +209,40 @@ const ops = {
   },
 };
 
+const sidebarUpperMenuList = [
+  {
+    title: "Dashboard",
+    icon: <GridViewIcon />,
+  },
+  {
+    title: "Daily",
+    icon: <CalendarMonthIcon />,
+  },
+  {
+    title: "Report",
+    icon: <ContentPasteOutlinedIcon />,
+  },
+  {
+    title: "History",
+    icon: <ContentCopyOutlinedIcon />,
+  },
+];
+
+const sidebarLowerMenuList = [
+  {
+    title: "Settings",
+    icon: <SettingsIcon />,
+  },
+  {
+    title: "Notifications",
+    icon: <NotificationsNoneIcon />,
+  },
+  {
+    title: "Sign Out",
+    icon: <LogoutIcon />,
+  },
+];
+
 export {
   notifications,
   salesproData,
@@ -216,5 +258,7 @@ export {
   outreachConfig,
   chartData,
   colors,
-  ops
+  ops,
+  sidebarLowerMenuList,
+  sidebarUpperMenuList,
 }
