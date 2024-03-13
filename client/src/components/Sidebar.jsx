@@ -5,20 +5,12 @@ import icon from "../icon.png";
 // import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 // import DonutSmallOutlinedIcon from "@mui/icons-material/DonutSmallOutlined";
 // import { ContactUs } from "../contact";
-import "./css/Sidebar.css";
 // ... other imports
 import ModalOverlay from "../modals/ModalOverlay";
 import DailyModalContent from "../modals/DailyModalContent";
-import GridViewIcon from '@mui/icons-material/GridView';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
-import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
-import SettingsIcon from '@mui/icons-material/Settings';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import LogoutIcon from '@mui/icons-material/Logout';
 import './css/Sidebar.css';
 import { Link } from 'react-router-dom';
-
+import { sidebarLowerMenuList, sidebarUpperMenuList } from "../mockData";
 
 const LogoWrapper = styled.div`
   padding: 10px 0;
@@ -50,6 +42,7 @@ const SidebarItem = styled.div`
   justify-content: flex-start !important;
   gap: 10px;
   align-items: center;
+  width: 100%;
 
   &:hover {
     background-color: #696FF2; // Darker background color on hover
@@ -70,7 +63,7 @@ const SidebarItem = styled.div`
 // Update to SidebarContainer
 const SidebarContainer = styled.div`
   background-color: #0B0D1E;
-  width: 14rem;
+  width: 10%;
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
@@ -78,40 +71,6 @@ const SidebarContainer = styled.div`
   flex-direction: column;
   justify-content: space-between; // Added this line
 `;
-
-const sideBarUpperMenuList = [
-  {
-    title: "Dashboard",
-    icon: <GridViewIcon />,
-  },
-  {
-    title: "Daily",
-    icon: <CalendarMonthIcon />,
-  },
-  {
-    title: "Report",
-    icon: <ContentPasteOutlinedIcon />,
-  },
-  {
-    title: "History",
-    icon: <ContentCopyOutlinedIcon />,
-  },
-];
-
-const sideBarLowerMenuList = [
-  {
-    title: "Settings",
-    icon: <SettingsIcon />,
-  },
-  {
-    title: "Notifications",
-    icon: <NotificationsNoneIcon />,
-  },
-  {
-    title: "Sign Out",
-    icon: <LogoutIcon />,
-  },
-];
 
 const Sidebar = () => {
 
@@ -134,43 +93,48 @@ const Sidebar = () => {
 
 
   return (
-    <SidebarContainer>
-      <div>
+    <div className="sidebar d-flex">
         <LogoWrapper>
           <LogoImage src={icon} alt="App Logo" />
           Dealer Dash
         </LogoWrapper>
         {/*<SidebarHeader>Dealer Dash</SidebarHeader>*/}
-
-        {sideBarUpperMenuList.map((menu, index) => (
+        {sidebarUpperMenuList.map((menu, index) => (
           <SidebarItem
-            key={index}
-            onClick={() => handleSidebarItemClick(menu.title)} // Use the handler function
+          key={index}
+          onClick={() => handleSidebarItemClick(menu.title)} // Use the handler function
           >
-            {menu.icon} {menu.title}
+            {
+              menu.title === "Dashboard" ? (
+                <Link className="link" to={`/dealerdash`}> 
+                  {menu.icon} {menu.title}
+                </Link>
+              ) : (
+                <Link className="link" to={`/${menu.title}`}> 
+                  {menu.icon} {menu.title}
+                </Link>
+              )
+              
+            }
+            
           </SidebarItem>
         ))}
         <hr className="divider" />
-        {sideBarLowerMenuList.map((menu, index) => (
+        {sidebarLowerMenuList.map((menu, index) => (
           <SidebarItem key={index}>
             {menu.icon} {menu.title}
           </SidebarItem>
         ))}
-
-
-        {/* <SidebarItem>Survey</SidebarItem>s */}
-      </div>
+      {/* <SidebarItem>Survey</SidebarItem>s */}
       {/* ... other sidebar items */}
-      <div>
-        {/* <SidebarTitle>Contact Us</SidebarTitle>
-        <ContactUs /> */}
-      </div>
+      {/* <SidebarTitle>Contact Us</SidebarTitle>
+      <ContactUs /> */}
       {isModalOpen && (
         <ModalOverlay onClose={closeModal}>
           <DailyModalContent onClose={closeModal} />
         </ModalOverlay>
       )}
-    </SidebarContainer>
+    </div>
   );
 };
 
