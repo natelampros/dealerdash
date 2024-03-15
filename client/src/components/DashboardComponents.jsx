@@ -16,7 +16,7 @@ const DashboardHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0 20px 0px;
+  padding: 20px 20px 20px 20px;
   font-size: 40px;
   gap: 10px;
   width: 100%;
@@ -49,7 +49,7 @@ const DashboardBoard = styled.div`
   max-width: 100%;
   min-height: 175px;
   justify-content: flex-start;
-  align-items: start;
+  align-items: flex-start;
   margin: 0 0 0 0;
   padding: 20px 20px 20px 20px;
   

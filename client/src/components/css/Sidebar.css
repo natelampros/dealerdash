@@ -50,9 +50,8 @@
 }
 
 .sidebar-logo {
-  padding: 0;
-  margin: 20px 0 0 0 !important;
-  padding: 10px 20px;
+  margin: 0 0 0 0 !important;
+  padding: 20px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -70,4 +69,13 @@
   border-radius: 10px;
   height: auto;
   background-color: #696ff2;
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
+
+.sidebar-container {
+  max-width: 240px !important;
+  padding: 0 10px 0 10px;
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { sidebarLowerMenuList, sidebarUpperMenuList } from '../mockData'
-import DashBoardView from '../views/DashboardView'
 import './css/Sidebar.css';
 import { Link } from "react-router-dom";
 import ModalOverlay from "../modals/ModalOverlay";
@@ -26,9 +25,9 @@ const NewSidebar = () => {
   };
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="bg-dark flex-row col-auto col-md-2 min-vh-100">
+    <div className="col-*">
+      <div className="container-fluid">
+        <div className="sidebar-container bg-dark flex-row col-auto w-100 min-vh-100">
           <div className="sidebar-logo justify-content-lg-start">
             <Link to={`/dealerdash`}>
               <img className="logo" src={icon} alt="App Logo" />
@@ -54,10 +53,10 @@ const NewSidebar = () => {
                   </>
                 ) : (
                   <>
-                    <Link className="link" to={`/dealerdash`}> 
+                    <Link className="link" to={`/${menu.title.toLowerCase()}`}> 
                       {menu.icon}
                     </Link>
-                    <Link className="link d-none d-lg-inline" to={`/${menu.title}`}> 
+                    <Link className="link d-none d-lg-inline" to={`/${menu.title.toLowerCase()}`}> 
                       {menu.title}
                     </Link>
                   </>
@@ -71,11 +70,12 @@ const NewSidebar = () => {
           {sidebarLowerMenuList.map((menu, index) => (
             <div className="sidebar-item d-flex justify-content-lg-start justify-content-md-center justify-content-sm-center justify-content-center" 
               key={index}
+              onClick={() => handleSidebarItemClick(menu.title)} 
             >
-              <Link className="link" to={`/${menu.title}`}>
+              <Link className="link" to={`/${menu.title.toLowerCase()}`}>
                 {menu.icon} 
               </Link>
-              <Link className="link d-none d-lg-inline" to={`/${menu.title}`}>
+              <Link className="link d-none d-lg-inline" to={`/${menu.title.toLowerCase()}`}>
                 {menu.title} 
               </Link>
             </div>
@@ -87,7 +87,7 @@ const NewSidebar = () => {
           )}
         </div>
       </div>
-    </div>
+    </div>  
   )
 }
 
