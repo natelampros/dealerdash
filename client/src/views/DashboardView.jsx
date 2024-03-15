@@ -54,7 +54,7 @@ const DashBoardView = () => {
   const showVariance = true; // Set this based on your requirements
 
   return (
-    <div className="container flex-nowrap w-100 custom-container">
+    <div className="container flex-wrap w-100 custom-container">
       <div className="row">
         <div className="col p-4">
           <div className="dashboard-title">
