@@ -75,7 +75,14 @@
   padding: 0 !important;
 }
 
+.menu-container {
+  max-width: 270px !important;
+  padding: 20px 10px 0 10px;
+}
+
 .sidebar-container {
-  max-width: 240px !important;
-  padding: 0 10px 0 10px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  width: 270px;
+  height: 100%;
 }

@@ -25,9 +25,9 @@ const NewSidebar = () => {
   };
 
   return (
-    <div className="col-*">
+    <div className="sidebar-container">
       <div className="container-fluid">
-        <div className="sidebar-container bg-dark flex-row col-auto w-100 min-vh-100">
+        <div className="menu-container bg-dark flex-row col-auto w-100 h-100 min-vh-100">
           <div className="sidebar-logo justify-content-lg-start">
             <Link to={`/dealerdash`}>
               <img className="logo" src={icon} alt="App Logo" />
