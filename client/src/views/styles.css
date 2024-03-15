@@ -1,90 +1,40 @@
-.container {
-  color: white;
-}
-
 .dashboard-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100vh;
-  padding: 0;
-  overflow: auto;
-  color: white;
-  margin: 0 20px 0 0;
-}
-
-.container {
-  margin: 0 auto;
-  /* display: flex; */
-  /* flex-direction: row;
-  justify-content: flex-start; */
-  width: 100%;
-  height: 100vh;
+  padding: 20px 20px 20px 20px;
+  gap: 20px;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .dashboard-body {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  width: 100%;
   height: 100%;
 }
 
-.board {
+.container-fluid {
+  height: 100% !important;
+}
+
+.flex-item {
   background-color: #21242c;
+  color: white;
   border-radius: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  height: min-content;
   padding: 20px;
-  margin: 10px;
-}
-
-.total-gross {
-  display: flex;
-  background-color: black;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: #21242c;
-  border-radius: 25px;
-  max-height: 175px !important;
-}
-
-.total-sold {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  max-height: 175px !important;
-}
-
-.sales-pro {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: auto;
-}
-
-.month-to-date-proj {
-  padding: 0;
-  margin: 0 !important;
-}
-
-.row {
-  margin: 0;
-  padding: 0;
 }
 
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+}
+
+.small-card {
+  width: 23.5%;
+  height: 20%;
+}
+
+.big-card {
+  width: 49%;
 }
 
 .boardTitle {
@@ -120,33 +70,11 @@
   margin: 0 0 20px 0;
 }
 
-.circle {
-  
-}
-
-.yearly-calendar {
-  width: 100%;
-  height: 20rem;
-}
-
-.sales-pro-container {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-}
-
 .progress-bar-header {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-}
-
-.board-progress {
-  
 }
 
 .progress-bar-name {
@@ -164,25 +92,6 @@
 .progress-bar-container {
   width: 100%;
   margin: 0 0 20px 0;
-}
-
-.progress-bar-name {
-  flex: 1;
-}
-
-.progress-bar-number {
-  flex: 1;
-}
-
-.notification-list {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
 }
 
 .dark-divider {
