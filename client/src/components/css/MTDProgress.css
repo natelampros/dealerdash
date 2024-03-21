@@ -1,13 +1,47 @@
 .card-body {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap; /* Allow items to wrap as needed */
+  align-items: center;
+  justify-content: space-around; /* This will space out the circular progress bars evenly */
   border: none !important;
-  padding: 0 !important;
+  padding: 0rem; /* Add some padding for better spacing */
 }
 
+.circular-progress-bar {
+  display: flex;
+  align-items: center; /* Align vertically center */
+  justify-content: center; /* Align horizontally center */
+  width: 100%; /* Make the progress bar responsive to the container's width */
+  max-width: 180px; /* Optional: Set a max width for the progress bar */
+  min-width: 50px; /* Set a minimum width for the progress bar */
+  height: auto; /* Adjust height automatically */
+}
+
+/* Adjust the container to manage the size and spacing of the circular progress bars */
+.circular-progress-bar-container {
+  flex: 1 1 auto; /* Allow the items to grow and shrink as needed */
+  margin: 0.5%;
+  min-width: 80px;
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .circular-progress-bar-container {
+    flex: 0 1 25%; /* Allow shrinking up to 25% */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .circular-progress-bar-container {
+    flex: 0 1 50%; /* Allow shrinking up to 50% for very small screens */
+  }
+}
+
+/* Keep your existing container and card styles */
 .container {
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
+  margin: 0;
+  padding: 0;
   border-radius: 25px;
   width: auto;
 }
@@ -16,15 +50,4 @@
   border-radius: 25px;
   border: none !important;
   width: 100%;
-}
-
-.circular-progress-bar-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
-  width: 100%;
-  height: 100%;
 }

@@ -1,5 +1,5 @@
 .divider {
-  color: #8B8C8F;
+  color: #8b8c8f;
   margin: 20px 0 20px;
   border-width: 3px;
 }
@@ -17,9 +17,9 @@
 }
 
 .sidebar {
-  background-color: #0B0D1E;
+  background-color: #0b0d1e;
   width: 12%;
-  height: 100vh;
+  height: 100%;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
@@ -40,7 +40,7 @@
   width: 100%;
 
   &:hover {
-    background-color: #696FF2;
+    background-color: #696ff2;
     color: #ffffff;
   }
   &:active {
