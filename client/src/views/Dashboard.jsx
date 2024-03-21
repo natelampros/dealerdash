@@ -76,7 +76,7 @@ const Dashboard = () => {
         }
       </DashboardHeader>
       <div className="container-fluid">
-        <div className="dashboard-container d-flex flex-row flex-md-col flex-wrap align-items-center justify-content-start">
+        <div className="dashboard-container d-flex flex-md-row flex-sm-column flex-column flex-md-wrap flex-sm-nowrap align-items-start justify-content-start">
           <div className="flex-item flex-fill small-card p-4">
             <div className="dashboard-title">
               <p className="boardTitle">Total gross</p>
@@ -92,7 +92,7 @@ const Dashboard = () => {
                 />
             </div>
           </div>
-          <div className="flex-item small-card p-4">
+          <div className="flex-item flex-fill small-card p-4 ">
             <div className="dashboard-title">
               <p className="boardTitle">Total sold</p>
               <Dropdown options={options}/>
