@@ -65,6 +65,10 @@ const keyMetricsList = [
   },
 ]
 
+const handleMetricItems = (name) => {
+  
+}
+
 const History = () => {
   return (
     <div className='history-container'>
@@ -76,7 +80,7 @@ const History = () => {
           {
             keyMetricsList.map((item) => {
               return (
-                <div className="key-metric">
+                <div className={`key-metric ${item.name}`} onClick={handleMetricItems(item.name)}>
                   {item.name}
                   <KeyboardArrowDownIcon style={{color: "#62636A"}}/>
                 </div>
