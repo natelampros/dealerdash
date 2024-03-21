@@ -33,7 +33,12 @@
 
 .small-card {
   width: 23.5%;
-  
+}
+
+@media (max-width: 768px) {
+  .small-card {
+    width: 100%;
+  }
 }
 
 .big-card {
