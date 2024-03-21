@@ -76,8 +76,8 @@ const Dashboard = () => {
         }
       </DashboardHeader>
       <div className="container-fluid">
-        <div className="dashboard-container d-flex flex-row flex-wrap justify-content-around">
-          <div className="flex-item small-card p-4">
+        <div className="dashboard-container d-flex flex-row flex-md-col flex-wrap align-items-center justify-content-start">
+          <div className="flex-item flex-fill small-card p-4">
             <div className="dashboard-title">
               <p className="boardTitle">Total gross</p>
               <Dropdown options={options}/>

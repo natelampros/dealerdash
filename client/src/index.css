@@ -6,8 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #141519;
-  overflow: hidden;
   height: 100%;
+  overflow: auto;
 }
 
 html {
@@ -30,5 +30,9 @@ p {
 }
 
 .container-fluid {
+  height: 100%;
+}
+
+#root {
   height: 100%;
 }
