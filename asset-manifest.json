@@ -1,32 +1,14 @@
 {
   "files": {
-    "main.css": "/dealerdash/static/css/main.77187f6d.css",
-    "main.js": "/dealerdash/static/js/main.f7c1e080.js",
-    "static/media/history_10.png": "/dealerdash/static/media/history_10.ffcdc4bc36676f34beda.png",
-    "static/media/history_11.png": "/dealerdash/static/media/history_11.37793cafedaa8e795a0c.png",
-    "static/media/report_6.png": "/dealerdash/static/media/report_6.8e1c00f2bec764109636.png",
-    "static/media/report_7.png": "/dealerdash/static/media/report_7.a25c920dc125c7965521.png",
-    "static/media/report_4.png": "/dealerdash/static/media/report_4.81217ef9032353fd9128.png",
-    "static/media/report_5.png": "/dealerdash/static/media/report_5.a3dcde757282f5dc8213.png",
-    "static/media/report_2.png": "/dealerdash/static/media/report_2.22a0ab432454e6099be3.png",
-    "static/media/report_3.png": "/dealerdash/static/media/report_3.66d51e72a0ad90283d2f.png",
-    "static/media/history_8.png": "/dealerdash/static/media/history_8.2209e3585cf0d7dd5bca.png",
-    "static/media/history_9.png": "/dealerdash/static/media/history_9.8191e3a32783d6ecb6d5.png",
-    "static/media/history_7.png": "/dealerdash/static/media/history_7.e2da9cef544e5fd04331.png",
-    "static/media/report_1.png": "/dealerdash/static/media/report_1.53282b383e676cab72c8.png",
-    "static/media/history_3.png": "/dealerdash/static/media/history_3.cb4b4b719cf974ee00cc.png",
-    "static/media/history_5.png": "/dealerdash/static/media/history_5.5175ccf19375d1be070a.png",
-    "static/media/history_6.png": "/dealerdash/static/media/history_6.f6c67ada9bb9b74830b4.png",
-    "static/media/history_4.png": "/dealerdash/static/media/history_4.8ca51c15ee620db68b70.png",
-    "static/media/history_2.png": "/dealerdash/static/media/history_2.4ac83ba94238d15b9845.png",
-    "static/media/history_1.png": "/dealerdash/static/media/history_1.bc96fa1379cc83fe67ff.png",
+    "main.css": "/dealerdash/static/css/main.95d697b7.css",
+    "main.js": "/dealerdash/static/js/main.75996b1e.js",
     "static/media/icon.png": "/dealerdash/static/media/icon.50114f1f47ce454a286b.png",
     "index.html": "/dealerdash/index.html",
-    "main.77187f6d.css.map": "/dealerdash/static/css/main.77187f6d.css.map",
-    "main.f7c1e080.js.map": "/dealerdash/static/js/main.f7c1e080.js.map"
+    "main.95d697b7.css.map": "/dealerdash/static/css/main.95d697b7.css.map",
+    "main.75996b1e.js.map": "/dealerdash/static/js/main.75996b1e.js.map"
   },
   "entrypoints": [
-    "static/css/main.77187f6d.css",
-    "static/js/main.f7c1e080.js"
+    "static/css/main.95d697b7.css",
+    "static/js/main.75996b1e.js"
   ]
 }
