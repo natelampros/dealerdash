@@ -17,7 +17,10 @@
 }
 
 .sidebar {
-  background-color: #0b0d1e;
+  position: fixed; /* Add this line */
+  top: 0; /* Add this line to align it from the top */
+  left: 0;
+  background-color: blue;
   width: 12%;
   height: 100%;
   padding: 20px;
@@ -85,4 +88,32 @@
   width: 400px !important;
   max-width: 400px !important;
   height: 100%;
+  background-color: #0b0d1e;
+}
+
+/* Add this to your Sidebar.css */
+
+.collapsed {
+  width: 80px; /* Adjust this width to fit your collapsed sidebar size */
+  transition: width 0.3s ease;
+}
+
+.collapsed-logo {
+  display: none; /* This will hide the logo text when sidebar is collapsed */
+}
+
+.sidebar-item.collapsed .link.d-none.d-lg-inline {
+  display: none; /* This will hide the text labels next to the icons when collapsed */
+}
+
+/* Optional: Adjust the size of the icons in the collapsed state if necessary */
+.sidebar-item.collapsed {
+  justify-content: center; /* This will center the icons in the collapsed state */
+}
+
+/* Adjustments to sidebar-item to work with toggling collapsed class */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  /* ...other styles... */
 }

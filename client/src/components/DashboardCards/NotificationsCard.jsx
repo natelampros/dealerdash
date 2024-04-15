@@ -1,5 +1,5 @@
 import React from "react";
-import Notification from "../../views/Notifications";
+import { Notification } from "../Notification";
 
 const NotificationsCard = ({ notifications }) => {
   return (
@@ -9,14 +9,16 @@ const NotificationsCard = ({ notifications }) => {
           <p className="boardTitle">Notifications</p>
         </div>
         <div className="notification-list">
-          {notifications.map((notification, index) => (
-            <>
-              <Notification notificationData={notification} key={index} />
-              {index < notifications.length - 1 && (
-                <hr className="dark-divider" />
-              )}
-            </>
-          ))}
+          {notifications.map((notification, index) => {
+            return (
+              <>
+                <Notification notificationData={notification} />
+                {index < notifications.length - 1 ? (
+                  <hr className="dark-divider" />
+                ) : null}
+              </>
+            );
+          })}
         </div>
       </div>
     </div>

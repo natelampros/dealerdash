@@ -21,6 +21,7 @@ app.use("/api/dealerships", dealershipsRoutes);
 app.use("/api/dealerships", dealershipMetricsRoutes);
 app.use("/api/metrics-data", metricsDataRoutes);
 app.use("/api/metrics-definitions", metricsDefinitionsRoutes);
+//still need routes for the users table and roles table
 
 //ROUTES//
 /*SECURITY TODO:

@@ -46,3 +46,36 @@
   margin: 0px 0 0 10px !important;
   font-size: 14px;
 }
+
+@media (max-width: 1750px) {
+  .pace {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1630px) {
+  .pace {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1515px) {
+  .pace {
+    font-size: 9px;
+  }
+}
+@media (max-width: 1460px) {
+  .pace {
+    font-size: 8px;
+  }
+}
+@media (max-width: 1400px) {
+  .pace {
+    font-size: 7px;
+  }
+}
+@media (max-width: 1300px) {
+  .pace {
+    font-size: 0px;
+  }
+}

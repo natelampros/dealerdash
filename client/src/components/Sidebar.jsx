@@ -8,9 +8,23 @@ import icon from "../icon.png";
 // ... other imports
 import ModalOverlay from "../modals/ModalOverlay";
 import DailyModalContent from "../modals/DailyModalContent";
-import './css/Sidebar.css';
-import { Link } from 'react-router-dom';
+import "./css/Sidebar.css";
+import { Link } from "react-router-dom";
 import { sidebarLowerMenuList, sidebarUpperMenuList } from "../mockData";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
+const SidebarContainer = styled.div`
+  background-color: teal;
+  width: ${(props) => (props.collapsed ? "80px" : "10%")};
+  height: 100vh;
+  padding: 20px;
+  transition: width 0.3s; // Add transition for smooth collapsing effect
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const LogoWrapper = styled.div`
   padding: 10px 0;
@@ -22,6 +36,18 @@ const LogoWrapper = styled.div`
   font-size: 20px;
   gap: 10px;
   font-weight: bold;
+  position: relative;
+`;
+const ToggleButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 20px; // Adjust as needed to align with the logo
+  left: 100%; // Position it to the right of the LogoWrapper content
+  transform: translateX(-100%); // Move it back into view
+  // Add more styling here as needed...
 `;
 
 const LogoImage = styled.img`
@@ -44,6 +70,10 @@ const SidebarItem = styled.div`
   align-items: center;
   width: 100%;
 
+  .menu-text {
+    display: ${(props) => (props.collapsed ? "none" : "inline")};
+  }
+
   &:hover {
     background-color: #696FF2; // Darker background color on hover
     color: #ffffff;
@@ -61,20 +91,24 @@ const SidebarItem = styled.div`
 // `;
 
 // Update to SidebarContainer
-const SidebarContainer = styled.div`
-  background-color: #0B0D1E;
-  width: 10%;
-  height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; // Added this line
-`;
+// const SidebarContainer = styled.div`
+//   background-color: teal;
+//   width: 10%;
+//   height: 100vh;
+//   padding: 20px;
+//   box-sizing: border-box;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between; // Added this line
+// `;
 
 const Sidebar = () => {
-
   const [isModalOpen, setModalOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setCollapsed(!collapsed);
+  };
 
   const openModal = () => {
     console.log("Opening modal");
@@ -91,50 +125,46 @@ const Sidebar = () => {
     }
   };
 
-
   return (
-    <div className="sidebar d-flex">
-        <LogoWrapper>
-          <LogoImage src={icon} alt="App Logo" />
-          Dealer Dash
-        </LogoWrapper>
-        {/*<SidebarHeader>Dealer Dash</SidebarHeader>*/}
-        {sidebarUpperMenuList.map((menu, index) => (
-          <SidebarItem
+    <SidebarContainer collapsed={collapsed}>
+      <LogoWrapper>
+        <ToggleButton onClick={toggleSidebar}>
+          {collapsed ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        </ToggleButton>
+        <LogoImage src={icon} alt="App Logo" />
+        {!collapsed && <span>Dealer Dash</span>}{" "}
+        {/* Only show text if not collapsed */}
+      </LogoWrapper>
+      {sidebarUpperMenuList.map((menu, index) => (
+        <SidebarItem
           key={index}
-          onClick={() => handleSidebarItemClick(menu.title)} // Use the handler function
+          onClick={() => handleSidebarItemClick(menu.title)}
+          collapsed={collapsed}
+        >
+          <Link
+            className={`link ${collapsed ? "collapsed-link" : ""}`}
+            to={menu.title === "Dashboard" ? `/dealerdash` : `/${menu.title}`}
           >
-            {
-              menu.title === "Dashboard" ? (
-                <Link className="link" to={`/dealerdash`}> 
-                  {menu.icon} {menu.title}
-                </Link>
-              ) : (
-                <Link className="link" to={`/${menu.title}`}> 
-                  {menu.icon} {menu.title}
-                </Link>
-              )
-              
-            }
-            
-          </SidebarItem>
-        ))}
-        <hr className="divider" />
-        {sidebarLowerMenuList.map((menu, index) => (
-          <SidebarItem key={index}>
-            {menu.icon} {menu.title}
-          </SidebarItem>
-        ))}
-      {/* <SidebarItem>Survey</SidebarItem>s */}
-      {/* ... other sidebar items */}
-      {/* <SidebarTitle>Contact Us</SidebarTitle>
-      <ContactUs /> */}
+            {menu.icon}
+            {!collapsed && <span>{menu.title}</span>}{" "}
+            {/* Only show text if not collapsed */}
+          </Link>
+        </SidebarItem>
+      ))}
+      <hr className="divider" />
+      {sidebarLowerMenuList.map((menu, index) => (
+        <SidebarItem key={index} collapsed={collapsed}>
+          {menu.icon}
+          {!collapsed && <span>{menu.title}</span>}{" "}
+          {/* Only show text if not collapsed */}
+        </SidebarItem>
+      ))}
       {isModalOpen && (
         <ModalOverlay onClose={closeModal}>
           <DailyModalContent onClose={closeModal} />
         </ModalOverlay>
       )}
-    </div>
+    </SidebarContainer>
   );
 };
 

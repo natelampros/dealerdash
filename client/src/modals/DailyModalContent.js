@@ -4,8 +4,10 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { metricsDefinitions } from "./modalMockData";
 import ProgressNav from "./ProgressNav";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useDataSource } from "../DataSourceContext";
 
 const DailyModalContent = ({ onClose }) => {
+  const { switchToProjection } = useDataSource();
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
   const categorizedMetrics = metricsDefinitions
     .filter((metric) => metric.ManualAdd)
@@ -32,6 +34,7 @@ const DailyModalContent = ({ onClose }) => {
   };
 
   const handleSave = () => {
+    switchToProjection();
     onClose();
   };
 
@@ -54,7 +57,7 @@ const DailyModalContent = ({ onClose }) => {
         borderRadius: "10px",
         boxShadow: "0 2px 12px rgba(0, 0, 0, 0.4)",
         maxWidth: "70vw",
-        height: "95vh",
+        height: "45vh",
       }}
     >
       <ProgressNav currentCategory={currentCategory} />

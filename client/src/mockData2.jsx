@@ -8,11 +8,11 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-const dashboardData = {
-  pace: 840100,
+export const dashboardData = {
+  pace: 955900,
   goal: 950000,
   salegoal: 200,
-  actual: 195,
+  actual: 207,
   isActual: true,
 };
 
@@ -32,8 +32,8 @@ const notifications = [
       />
     ),
     title: "CIT",
-    description: "Brief notification description of CIT and its cost",
-    cost: -1850,
+    description: "Collected money from the Collins deal!",
+    cost: 2030,
   },
   {
     key: "2",
@@ -50,7 +50,7 @@ const notifications = [
       />
     ),
     title: "Bad Money Alert",
-    description: "Brief notification description of CIT and its cost",
+    description: "Bad check from the Jeffery's deal",
     cost: -1850,
   },
   {
@@ -69,7 +69,7 @@ const notifications = [
     ),
     title: "CIT",
     description: "Brief notification description of CIT and its cost",
-    cost: 1850,
+    cost: -1850,
   },
   {
     key: "4",
@@ -87,43 +87,43 @@ const notifications = [
     ),
     title: "CIT",
     description: "Brief notification description of CIT and its cost",
-    cost: -1850,
+    cost: 2000,
   },
 ];
 
 const colors = [{ purple: "#464DC2" }];
 
 const salesproData = [
-  { key: "1", name: "Alex Johnson", actual: "18", goal: "22" },
+  { key: "1", name: "Alex Johnson", actual: "22", goal: "22" },
   { key: "2", name: "Sam Smith", actual: "15", goal: "25" },
-  { key: "3", name: "Emily Davis", actual: "18", goal: "18" },
-  { key: "4", name: "Jordan Brown", actual: "10", goal: "22" },
-  { key: "5", name: "Casey Lee", actual: "12", goal: "18" },
-  { key: "6", name: "Taylor Morgan", actual: "17", goal: "25" },
+  { key: "3", name: "Emily Davis", actual: "19", goal: "18" },
+  { key: "4", name: "Jordan Brown", actual: "22", goal: "22" },
+  { key: "5", name: "Casey Lee", actual: "16", goal: "18" },
+  { key: "6", name: "Taylor Morgan", actual: "25", goal: "25" },
 ];
 
 const srvcPartsData = [
-  { key: "1", name: "Casey Jordan", actual: "23", goal: "22" },
-  { key: "2", name: "Jamie White", actual: "24", goal: "25" },
-  { key: "3", name: "Jay Hopkins", actual: "14", goal: "18" },
-  { key: "4", name: "Morgan Kim", actual: "20", goal: "22" },
-  { key: "5", name: "Riley Brooks", actual: "13", goal: "25" },
+  { key: "1", name: "Casey Jordan", actual: "24", goal: "22" },
+  { key: "2", name: "Jamie White", actual: "25", goal: "25" },
+  { key: "3", name: "Jay Hopkins", actual: "16", goal: "18" },
+  { key: "4", name: "Morgan Kim", actual: "22", goal: "22" },
+  { key: "5", name: "Riley Brooks", actual: "26", goal: "25" },
 ];
 
 const salesFinData = [
-  { key: "1", name: "John Davis", actual: "18", goal: "22" },
-  { key: "2", name: "Steve Lacy", actual: "12", goal: "25" },
-  { key: "3", name: "Jordan Lee", actual: "14", goal: "18" },
-  { key: "4", name: "Chris Parker", actual: "20", goal: "22" },
-  { key: "5", name: "Sasm Kelley", actual: "21", goal: "25" },
+  { key: "1", name: "John Davis", actual: "23", goal: "22" },
+  { key: "2", name: "Steve Lacy", actual: "24", goal: "25" },
+  { key: "3", name: "Jordan Lee", actual: "16", goal: "18" },
+  { key: "4", name: "Chris Parker", actual: "22", goal: "22" },
+  { key: "5", name: "Sasm Kelley", actual: "26", goal: "25" },
 ];
 
 const fixedopData = [
-  { key: "1", name: "Service Gross", actual: 124340, goal: 120000 },
-  { key: "2", name: "Parts Gross", actual: 104040, goal: 120000 },
-  { key: "3", name: "Total RO", actual: 1023, goal: 1250 },
-  { key: "4", name: "Total Hours", actual: 1023, goal: 1250 },
-  { key: "5", name: "Hours Per RO", actual: 20, goal: 25 },
+  { key: "1", name: "Service Gross", actual: 125340, goal: 120000 },
+  { key: "2", name: "Parts Gross", actual: 120030, goal: 120000 },
+  { key: "3", name: "Total RO", actual: 1260, goal: 1250 },
+  { key: "4", name: "Total Hours", actual: 1234, goal: 1250 },
+  { key: "5", name: "Hours Per RO", actual: 26, goal: 25 },
 ];
 
 const options = [
@@ -205,7 +205,7 @@ const chartData = {
   datasets: [
     {
       label: "Actual",
-      data: [1200, 900, 600, 300, 50, 100, 200, 400, 600, 800, 1000, 1100],
+      data: [900, 1000, 500, 300, 800, 700, 200, 500, 800, 400, 900, 700],
       backgroundColor: "#464DC2",
       borderColor: "",
       borderWidth: 1,
@@ -214,7 +214,7 @@ const chartData = {
     },
     {
       label: "Goal",
-      data: [1200, 900, 600, 300, 50, 100, 200, 400, 600, 800, 1000, 1100],
+      data: [800, 1000, 700, 200, 900, 900, 300, 300, 600, 500, 800, 700],
       backgroundColor: "#B75CC3",
       borderColor: "",
       borderWidth: 1,
@@ -282,7 +282,6 @@ const sidebarLowerMenuList = [
 ];
 
 export {
-  dashboardData,
   notifications,
   salesproData,
   srvcPartsData,

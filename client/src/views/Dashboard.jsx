@@ -1,21 +1,6 @@
 import { DashboardHeader } from "../components/DashboardComponents";
-import {
-  notifications,
-  salesproData,
-  srvcPartsData,
-  salesFinData,
-  fixedopData,
-  options,
-  outreachOptions,
-  salesFinOptions,
-  salesproOptions,
-  yearlyOptions,
-  outreachData,
-  outreachConfig,
-  chartData,
-  colors,
-  ops,
-} from "../mockData";
+import * as mockData from "../mockData";
+import * as mockData2 from "../mockData2";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Progressbar } from "../components/Progressbar";
 import { useState, useEffect } from "react";
@@ -36,24 +21,24 @@ import SaleFinLeadershipCard from "../components/DashboardCards/SaleFinLeadershi
 import ServicePartsLeadershipCard from "../components/DashboardCards/ServicePartsLeadershipCard";
 import "./styles.css";
 import Sidebar from "../components/Sidebar";
+import { useDataSource } from "../DataSourceContext";
 
 const Dashboard = () => {
-  const [pace, setPace] = useState(840100);
-  const [goal, setGoal] = useState(950000);
-  const [salegoal, setSaleGoal] = useState(200);
-  const [actual, setActual] = useState(207);
-  const [isActual, setIsActual] = useState(true);
+  const { isProjection, toggleProjection } = useDataSource();
+
+  // Use the provided data based on the current state
+  const data = isProjection ? mockData2 : mockData;
 
   useEffect(() => {});
 
   // formatted numbers
-  const progress = pace / goal;
-  const p = pace.toLocaleString();
-  const g = goal.toLocaleString();
+  const progress = data.dashboardData.pace / data.dashboardData.goal;
+  const p = data.dashboardData.pace.toLocaleString();
+  const g = data.dashboardData.goal.toLocaleString();
 
   const showVariance = true; // Set this based on your requirements
 
-  console.log(salesproData);
+  console.log(data.salesproData);
 
   return (
     <div className="dashboard-container">
@@ -63,17 +48,26 @@ const Dashboard = () => {
             Dashboard
             <CalendarTodayIcon fontSize="large" />
           </div>
-          {isActual ? (
-            <div className="main-options">
-              <p style={{ color: "#6A6B6D" }}>Actual</p>
-              <p>Projection</p>
-            </div>
-          ) : (
-            <div className="main-options">
-              <p>Actual</p>
-              <p style={{ color: "#6A6B6D" }}>Projection</p>
-            </div>
-          )}
+          <div className="main-options">
+            <p
+              style={{
+                color: isProjection ? "#6A6B6D" : "white",
+                fontWeight: isProjection ? "normal" : "bold", // Make "Actual" bold when isProjection is false
+              }}
+              onClick={() => toggleProjection(false)}
+            >
+              Actual
+            </p>
+            <p
+              style={{
+                color: isProjection ? "white" : "#6A6B6D",
+                fontWeight: isProjection ? "bold" : "normal", // Make "Projection" bold when isProjection is true
+              }}
+              onClick={() => toggleProjection(true)}
+            >
+              Projection
+            </p>
+          </div>
         </div>
       </div>
       <div className="column">
@@ -81,19 +75,19 @@ const Dashboard = () => {
           <div className="card half">
             {/* Gross 1 */}
             <GrossCard
-              pace={pace}
-              goal={goal}
-              options={options}
-              showVariance={showVariance}
+              pace={p}
+              goal={g}
+              options={data.options}
+              showVariance={true}
             />
           </div>
           <div className="card half">
             {" "}
             {/* Sold 2 */}
             <SoldCard
-              actual={actual}
-              salegoal={salegoal}
-              options={options}
+              actual={data.dashboardData.actual}
+              salegoal={data.dashboardData.salegoal}
+              options={data.options}
               showVariance={showVariance}
             />
           </div>
@@ -102,21 +96,21 @@ const Dashboard = () => {
           <div className="card stretch">
             {/* History Card */}
             <HistoryCard
-              yearlyOptions={yearlyOptions}
-              chartData={chartData}
-              ops={ops}
+              yearlyOptions={data.yearlyOptions}
+              chartData={data.chartData}
+              ops={data.ops}
             />
           </div>
         </div>
         <div className="card-row">
           <div className="card half">
             {/* Notifications */}
-            <NotificationsCard notifications={notifications} />
+            <NotificationsCard notifications={data.notifications} />
           </div>
           <div className="card half">
             {" "}
             {/* Fixed Operations */}
-            <FixedOpsCard fixedopData={fixedopData} colors={colors} />
+            <FixedOpsCard fixedopData={data.fixedopData} colors={data.colors} />
           </div>
         </div>
       </div>
@@ -126,17 +120,17 @@ const Dashboard = () => {
           <div className="card half">
             {/* Gross 1 */}
             <SalesRepsCard
-              salesproData={salesproData}
-              salesproOptions={salesproOptions}
+              salesproData={data.salesproData}
+              salesproOptions={data.salesproOptions}
             />
           </div>
           <div className="card half">
             {" "}
             {/* Sold 2 */}
             <OutreachCard
-              outreachData={outreachData}
-              outreachOptions={outreachOptions}
-              outreachConfig={outreachConfig}
+              outreachData={data.outreachData}
+              outreachOptions={data.outreachOptions}
+              outreachConfig={data.outreachConfig}
             />
           </div>
         </div>
@@ -150,16 +144,16 @@ const Dashboard = () => {
           <div className="card half">
             {/* Notifications */}
             <SaleFinLeadershipCard
-              salesFinData={salesFinData}
-              salesFinOptions={salesFinOptions}
+              salesFinData={data.salesFinData}
+              salesFinOptions={data.salesFinOptions}
             />
           </div>
           <div className="card half">
             {" "}
             {/* Fixed Operations */}
             <ServicePartsLeadershipCard
-              srvcPartsData={srvcPartsData}
-              servicePartsOptions={salesproOptions}
+              srvcPartsData={data.srvcPartsData}
+              servicePartsOptions={data.salesproOptions}
             />
           </div>
         </div>
