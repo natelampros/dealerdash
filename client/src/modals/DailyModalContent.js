@@ -57,7 +57,8 @@ const DailyModalContent = ({ onClose }) => {
         borderRadius: "10px",
         boxShadow: "0 2px 12px rgba(0, 0, 0, 0.4)",
         maxWidth: "70vw",
-        height: "45vh",
+        minHeight: "680px",
+        height: "70vh",
       }}
     >
       <ProgressNav currentCategory={currentCategory} />
